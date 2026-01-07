@@ -1,291 +1,202 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Team</title>
+    <title>E-Cell | Our Team</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header class="site-header" >
-        <div class="container header-inner">
-            <a class="brand" href="#top" aria-label="E-Cell Home">
-                <img src="img/edc-logo.jpg" alt="E-Cell Logo" class="logo" width="66" height="66">
-                <span class="brand-text"></span>
-            </a>
-            <button class="nav-toggle"  aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
-                <span></span><span></span><span></span>
-            </button>
-            <nav>
-                <ul id="primaryNav" class="nav" aria-label="Primary">
 
-                    <li><a href="index.html">Home</a></li>
-                    <!-- <li><a href="#about">About</a></li> -->
-                    <!-- <li><a href="#initiatives">Initiatives</a></li> -->
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="team.html">Team</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <!-- <li><a href="#sponsors">Sponsors</a></li> -->
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact" class="btn btn-primary">Contact</a></li>
-                    <li class="dropdown">
-                       <a href="#" class="dropbtn">Join Us</a>
-                        <div class="dropdown-content">
-                        <a href="/register.html">Register</a>
-                        <a href="/login.html">Login</a>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body id="top">
+
+<!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="E-Cell Home">
+        <img src="img/edc-logo-removebg-preview.png" alt="E-Cell logo" class="logo" width="150" height="130">
+      </a>
+
+      <button class="nav-toggle"
+              id="navToggle"
+              aria-controls="primaryNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav>
+        <ul id="primaryNav" class="nav" aria-label="Primary navigation">
+          <li><a href="index.html">Home</a></li>
+     
+          <li><a href="gallery.html">Gallery</a></li>
+               <li><a href="events.html" class="active">Events</a></li>
+               <li><a href="team.html">Team</a></li>
+          <li><a href="index.html#contact" >Contact</a></li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<!-- ================= HERO BANNER ================= -->
+<section class="team-hero">
+    <h2>OUR TEAM</h2>
+</section>
 
 <main>
-    <section class="team-section">
-         <h2 class="center">Core Team</h2>
-            <div class="team-row level-1">
-                <article class="person member">
-                            <img src="img/members.webp" alt="Overall Head">
-                            <h3 class="name">Prajwal Vitkar</h3>
-                            <p class="role">Overall Head & EDC Corrdinator</p>
-                        </article>
-                <article class="person member">
-                            <img src="img/Bhavya.jpg" alt="Overall Head">
-                            <h3 class="name">Bhavya Chawda</h3>
-                            <p class="role">Overall Head & Start-up Coordinator</p>
-                        </article>
-            </div>
 
-            <div class="team-row level-2">
-                <article class="person member">
-                            <img src="img/members.webp" alt="EDC Co head">
-                            <h3 class="name">Vinit Jain</h3>
-                            <p class="role">Co-Head EDC</p>
-                        </article>
-                <article class="person member">
-                            <img src="img/members.webp" alt="Start-up Co head">
-                            <h3 class="name">Khushi Jain</h3>
-                            <p class="role">Co-Head Start-up</p>
-                        </article>
-            </div>
+<!-- ================= CORE TEAM ================= -->
+<section class="team-section">
+    <h2 class="center">Core Team</h2>
 
-            <div class="team-row level-3">
-               <article class="person member">
-                            <img src="img/members.webp" alt="Corporate Relation Head">
-                            <h3 class="name">Aastha Gami</h3>
-                            <p class="role">Corporate Realtion Head</p>
-                        </article>
-                        <article class="person member">
-                            <img src="img/members.webp" alt="Media Head">
-                            <h3 class="name">Sahil Bondgulwar</h3>
-                            <p class="role">Media Head</p>
-                        </article>
-                        <article class="person member">
-                            <img src="img/members.webp" alt="Graphic Design Head">
-                            <h3 class="name">Ishan Kaundal</h3>
-                            <p class="role">Graphic Design Head</p>
-                        </article>
-                        <article class="person member">
-                            <img src="img/minakshi.jpg" alt="Public Relation Head">
-                            <h3 class="name">Minakshi </h3>
-                            <p class="role">Public Relation Head</p>
-                        </article>
-            </div>
+    <!-- Row 1: 2 centered -->
+    <div class="team-row center-row">
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Prajwal Vitkar</h3><p class="role">Overall Head & EDC Coordinator</p></article>
+        <article class="person member rise-team"><img src="img/Bhavya.jpg"><h3 class="name">Bhavya Chawda</h3><p class="role">Overall Head & Startup Coordinator</p></article>
+    </div>
 
-            <div class="team-row level-4">
-                <article class="person member">
-                            <img src="img/members.webp" alt="Marketing Head">
-                            <h3 class="name">Min Nepali</h3>
-                            <p class="role">Marketing Head</p>
-                        </article>
-                        <article class="person member">
-                            <img src="img/members.webp" alt="Technical Head">
-                            <h3 class="name">Aarnav Khanna</h3>
-                            <p class="role">Technical Head</p>
-                        </article>
-                        <article class="person member">
-                            <img src="img/members.webp" alt="Creativity Head">
-                            <h3 class="name">Samar Jagtap</h3>
-                            <p class="role">Creativity Head</p>
-                        </article>
-                        <article class="person member">
-                            <img src="img/members.webp" alt="Hr Head">
-                            <h3 class="name">Divyansh</h3>
-                            <p class="role">Hr Head</p>
-                        </article>
-            </div>
-     </section>
+    <!-- Row 2: 2 spaced wider (pyramid effect) -->
+    <div class="team-row spaced-row">
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Vinit Jain</h3><p class="role">Co-Head EDC</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Khushi Jain</h3><p class="role">Co-Head Startup</p></article>
+    </div>
 
-    <!-- Directors -->
-        <h2 class="center">Directors</h2>
-             <div class="team-row directors">
-                <article class="person member">
-                    <img src="img/members.webp" alt="Technical Director">
-                    <h3 class="name">Ansh</h3>
-                    <p class="role">Technical Director</p>
-                </article>
-                <article class="person member">
-                    <img src="img/members.webp" alt="Technical Director">
-                    <h3 class="name">Sreyansh</h3>
-                    <p class="role">Technical Director</p>
-                </article> 
-                <article class="person member">
-                    <img src="img/members.webp" alt="Graphic Design">
-                    <h3 class="name">Vaibhavi Vats</h3>
-                    <p class="role">Graphic Design Director</p>
-                </article>
-                <article class="person member">
-                    <img src="img/members.webp" alt="Graphic Design">
-                    <h3 class="name">Prnv Sharma</h3>
-                    <p class="role">Graphic Design Director</p>
-                </article>
-                </div>
+    <!-- Pyramid below: 3 - 2 - 3 -->
+    <div class="team-row">
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Aastha Gami</h3><p class="role">Corporate Relation Head</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Sahil Bondgulwar</h3><p class="role">Media Head</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Ishan Kaundal</h3><p class="role">Graphic Design Head</p></article>
+    </div>
 
-                <div class="team-row directors">
-                <article class="person member">   
-                    <img src="img/members.webp" alt="Corporate Realation">
-                    <h3 class="name">Shruti</h3>
-                    <p class="role">Corporate Realation Director</p>
-                </article>
-                <article class="person member">
-                    <img src="img/members.webp" alt="Corporate Realation">
-                    <h3 class="name">Semal</h3>
-                    <p class="role">Corporate Realation Director</p>
-                </article>
-                <article class="person member">
-                    <img src="img/members.webp" alt="Creativity Director">
-                    <h3 class="name">Shreya</h3>
-                    <p class="role">Creativity Director</p>
-                </article>
-                <article class="person member">
-                    <img src="img/members.webp" alt="Creativity Director">
-                    <h3 class="name">Nishu</h3>
-                    <p class="role">Creativity Director</p>
-                </article>
-            </div>
+    <div class="team-row center-row">
+        <article class="person member rise-team"><img src="img/minakshi.jpg"><h3 class="name">Minakshi</h3><p class="role">Public Relation Head</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Divyansh</h3><p class="role">HR Head</p></article>
+    </div>
 
-            <div class="team-row directors">
-                <article class="person member">
-                    <img src="img/members.webp" alt="Media">
-                    <h3 class="name">Kshitij Sahu</h3>
-                    <p class="role">Media Director</p>
-                </article>
-            <article class="person member">
-                    <img src="img/members.webp" alt="Media">
-                    <h3 class="name">Akshat Srivastav</h3>
-                    <p class="role">Media Director</p>
-                </article>
-                <article class="person member">
-                    <img src="img/members.webp" alt="Public Relation">
-                    <h3 class="name">Vincy</h3>
-                    <p class="role">Public Relation Director</p>
-                </article>
-                <article class="person member">
-                    <img src="img/members.webp" alt="Public Relation">
-                    <h3 class="name">Om</h3>
-                    <p class="role">Public Relation Director</p>
-                </article>
-            </div>
+    <div class="team-row">
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Min Nepali</h3><p class="role">Marketing Head</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Aarnav Khanna</h3><p class="role">Technical Head</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Samar Jagtap</h3><p class="role">Creativity Head</p></article>
+    </div>
 
-            <div class="team-row directors">
-                <article class="person member">
-                    <img src="img/members.webp" alt="Marketing">
-                    <h3 class="name">Shivam</h3>
-                    <p class="role">Marketing Director</p>
-                </article>
-                <article class="person member">
-                    <img src="img/members.webp" alt="Marketing">
-                    <h3 class="name">Aviral</h3>
-                    <p class="role">Marketing Director</p>
-                </article>
-                <article class="person member">
-                    <img src="img/members.webp" alt="Marketing">
-                    <h3 class="name">XXXXXXXX</h3>
-                    <p class="role">XXXXXXX</p>
-                </article>
-                <article class="person member">
-                    <img src="img/members.webp" alt="Marketing">
-                    <h3 class="name">XXXXXXX</h3>
-                    <p class="role">XXXXXX</p>
-                </article>
-            </div>
-        </div>
-          
-        </div>
-        </section>
-         <section id="contact" class="section contact">
-            <div class="container grid-2">
-                <div>
-                    <h2>Get in touch</h2>
-                    <p>Collaborations, sponsorships, or joining the team—drop us a note and we’ll get back.</p>
-                    <ul class="contact-list">
-                        <li><strong>Email:</strong> bhavyachawda19@gmail.com</li>
-                        <li><strong>Ph.No</strong>+916263537991</li>
-                        <li><strong>Address:</strong> Bharti Vidyapeeth College Of Engineering, Pune</li>
-                        <li><strong>Hours:</strong> Mon–Fri, 10:00–17:00</li>
-                    </ul>
-                </div>
-                <form id="contactForm" class="card form" novalidate>
-                    <div class="row">
-                        <label>
-                            <span>Name</span>
-                            <input type="text" name="name" required minlength="2" placeholder="Your name">
-                        </label>
-                        <label>
-                            <span>Email</span>
-                            <input type="email" name="email" required placeholder="you@example.com">
-                        </label>
-                    </div>
-                    <label>
-                        <span>Message</span>
-                        <textarea name="message" required minlength="10" rows="5" placeholder="Tell us about your idea..."></textarea>
-                    </label>
-                    <div class="form-foot">
-                        <button type="submit" class="btn btn-primary">Send</button>
-                        <p id="formStatus" role="status" aria-live="polite"></p>
-                    </div>
-                </form>
-            </div>
-        </section>
-        <section>
-            <!-- Social Media Sidebar -->
-            <div class="social-sidebar">
-            <a href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell/about/?viewAsMember=true" target="_blank" class="icon linkedin">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://www.instagram.com/edcbvducoep?igsh=eng5ZngzN3V6c2Zs" target="_blank" class="icon instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="mailto:bhavyachawda19@gmail.com" class="icon mail">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <!-- <a href="https://github.com/your-link" target="_blank" class="icon github">
-                <i class="fab fa-github"></i>
-            </a> -->
-            </div>
-        </section>
-    </main>
+</section>
 
-     <footer class="site-footer">
-        <div class="container footer-inner">
-            <p>© <span id="year"></span> E-Cell • Built by Bhavya Chawda| Ansh Tarsoliya <br> bhavyachawda19@gmail.com</p>
-            <ul class="contact-list">
-                        <li><strong>Email:</strong> bhavyachawda19@gmail.com</li>
-                        <li><strong>Ph.No</strong>+916263537991</li>
-                        <li><strong>Address:</strong> Bharti Vidyapeeth College Of Engineering, Pune</li>
-                        <li><strong>Hours:</strong> Mon–Fri, 10:00–17:00</li>
-                    </ul>
-            <a href="#top" class="to-top" aria-label="Back to top">↑</a>
-        </div>
-    </footer>
+<!-- ================= DIRECTORS ================= -->
+<h2 class="center">Directors</h2>
 
-    <script src="assets/js/main.js"></script>
+<section class="team-section">
+    <!-- 4 × 4 rows -->
+    <div class="team-row">
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Ansh</h3><p class="role">Technical Director</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Sreyansh</h3><p class="role">Technical Director</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Vaibhavi Vats</h3><p class="role">Graphic Design Director</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Prnv Sharma</h3><p class="role">Graphic Design Director</p></article>
+    </div>
 
-    
+    <div class="team-row">
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Shruti</h3><p class="role">Corporate Relation Director</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Semal</h3><p class="role">Corporate Relation Director</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Shreya</h3><p class="role">Creativity Director</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Nishu</h3><p class="role">Creativity Director</p></article>
+    </div>
+
+    <div class="team-row">
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Kshitij</h3><p class="role">Media Director</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Akshat</h3><p class="role">Media Director</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Vincy</h3><p class="role">Public Relation Director</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Om</h3><p class="role">Public Relation Director</p></article>
+    </div>
+
+    <div class="team-row">
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Shivam</h3><p class="role">Marketing Director</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">Aviral</h3><p class="role">Marketing Director</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">XXXX</h3><p class="role">XXXX</p></article>
+        <article class="person member rise-team"><img src="img/members.webp"><h3 class="name">XXXX</h3><p class="role">XXXX</p></article>
+    </div>
+</section>
+
+</main>
+
+<!-- SOCIAL SIDEBAR -->
+<div class="social-sidebar">
+    <a href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell" class="icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.instagram.com/edcbvducoep" class="icon instagram"><i class="fab fa-instagram"></i></a>
+    <a href="mailto:bhavyachawda19@gmail.com" class="icon mail"><i class="fas fa-envelope"></i></a>
+</div>
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+
+    <!-- COLUMN 1 — CONTACT INFO -->
+    <div class="footer-col footer-contact">
+      <p><strong>Email:</strong> bhavyachawda19@gmail.com</p>
+      <p><strong>Phone:</strong> +91 62635 37991</p>
+      <p><strong>Address:</strong> BVUCOEP, Pune</p>
+      <p><strong>Hours:</strong> Mon–Fri, 10:00–17:00</p>
+    </div>
+
+    <!-- COLUMN 2 — NAV LINKS -->
+    <div class="footer-col footer-links">
+      <a href="index.html">Home</a>
+      <a href="events.html">Events</a>
+      <a href="team.html">Team</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <!-- COLUMN 3 — GET IN TOUCH FORM -->
+    <div class="footer-col footer-form">
+      <h3 class="footer-form-title">Get in touch</h3>
+      <p class="footer-form-sub">
+        Collaborations, sponsorships, or joining the team—drop us a message.
+      </p>
+
+  <form id="footerContact" class="footer-form" novalidate>
+
+  <label>
+    <span>Email</span>
+    <input name="email" type="email" required placeholder="you@example.com">
+  </label>
+
+  <label>
+    <span>Message</span>
+    <textarea name="message" rows="4" required placeholder="Tell us about your idea"></textarea>
+  </label>
+
+  <button type="submit" class="btn footer-btn">Send</button>
+
+  <p id="footerStatus" aria-live="polite"></p>
+</form>
+    </div>
+
+    <!-- COLUMN 4 — SOCIAL + COPYRIGHT -->
+    <div class="footer-col footer-social">
+      <p class="follow-title">Follow Us On:</p>
+
+      <div class="social-icons">
+        <a class="icon" href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a class="icon" href="https://www.instagram.com/edcbvducoep" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a class="icon" href="mailto:bhavyachawda19@gmail.com">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
+
+      <p class="copyright">© 2025 E-Cell<br>Built by Bhavya | Ansh</p>
+    </div>
+
+  </div>
+</footer>
+
+
+<script src="main.js"></script>
 </body>
 </html>
