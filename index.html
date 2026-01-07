@@ -1,463 +1,454 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#0f172a">
-    <title>E-Cell | Entrepreneurship Cell</title>
-    <meta name="description" content="E-Cell of our college – fostering entrepreneurship through events, mentorship, and innovation.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    <link rel="stylesheet" href="style.css">
-    
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>E-Cell | Entrepreneurship Cell</title>
+
+  <meta name="description" content="E-Cell of our college – fostering entrepreneurship through events, mentorship, and innovation.">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header class="site-header">
-        <div class="container header-inner">
-            <a class="brand" href="#top" aria-label="E-Cell Home">
-                <img src="img/edc-logo.jpg" alt="E-Cell Logo" class="logo" width="66" height="66">
-                <span class="brand-text"></span>
-            </a>
-            <button class="nav-toggle"  aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
-                <span></span><span></span><span></span>
-            </button>
-            <nav>
-                <ul id="primaryNav" class="nav" aria-label="Primary">
 
-                    <li><a href="index.html">Home</a></li>
-                    <!-- <li><a href="#about">About</a></li> -->
-                    <!-- <li><a href="#initiatives">Initiatives</a></li> -->
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="team.html">Team</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <!-- <li><a href="#sponsors">Sponsors</a></li> -->
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact" class="btn btn-primary">Contact</a></li>
-                    <li class="dropdown">
-                       <a href="#" class="dropbtn">Join Us</a>
-                        <div class="dropdown-content">
-                        <a href="/register.html">Register</a>
-                        <a href="/login.html">Login</a>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body id="top">
 
-    <main>
-        <!-- <section class="hero">
-            <div class="container hero-inner">
-                <div class="hero-content">
-                    <h1>Ignite. Innovate. Impact.</h1>
-                    <p>Entrepreneurship Cell of our college empowering students to build, launch, and lead through hands-on programs, startup support, and a vibrant community.</p>
-                    <div class="actions">
-                        <a href="#events" class="btn explore">Explore Events</a>
-                        <a href="#contact" class="btn join">Join E-Cell</a>
-                    </div>
-                    <ul class="stats" aria-label="Key stats">
-                        <li><strong>50+</strong><span>Startups mentored</span></li>
-                        <li><strong>20K+</strong><span>Attendees reached</span></li>
-                        <li><strong>100+</strong><span>Workshops</span></li>
-                    </ul>
-                </div>
-                <div class="hero-media" aria-hidden="true">
-                    <div class="hero-blob"></div>
-                </div>
-            </div>
-        </section> -->
-            <section class="hero-section">
-            <!-- Background Video
-            <video autoplay muted loop playsinline class="bg-video">
-            <source src="video/bg-video4.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-            </video> -->
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="E-Cell Home">
+        <img src="img/edc-logo-removebg-preview.png" alt="E-Cell logo" class="logo" width="150" height="130">
+      </a>
 
-            <!-- Content -->
-            <div class="hero-content2">
-            <h1>Ignite. Innovate. Impact.</h1>
-            <p>Entrepreneurship Cell of our college empowering students to build, launch, and lead through hands-on programs, startup support, and a vibrant community.</p>
-            <div class="buttons">
-            <!-- <button class="btn">Explore Events</button>
-            <button class="btn">Join E-Cell</button> -->
-            <a href="#events" class="btn explore">Explore Events</a>
-            <a href="#contact" class="btn join">Join E-Cell</a>
-            </div>
-             <ul class="stats" aria-label="Key stats">
-                <li><strong>50+</strong><span>Startups mentored</span></li>
-                 <li><strong>20K+</strong><span>Attendees reached</span></li>
-                 <li><strong>100+</strong><span>Workshops</span></li>
-            </ul>
-        </div>
+      <button class="nav-toggle"
+              id="navToggle"
+              aria-controls="primaryNav"
+              aria-expanded="false"
+              aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav>
+        <ul id="primaryNav" class="nav" aria-label="Primary navigation">
+          <li><a href="index.html">Home</a></li>
+          
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="team.html">Team</a></li>
+        
+           
+          <li><a href="#contact" >Contact</a></li>
+       
+        </ul>
+      </nav>
     </div>
+  </header>
+
+  <main>
+    <!-- ================ HERO ================= -->
+    <section class="hero-section">
+      <div class="hero-inner container">
+        <div class="hero-content">
+          <h1 class="hero-line">Ignite.</h1>
+          <h1 class="hero-line">Innovate.</h1>
+          <h1 class="hero-line">Impact.</h1>
+
+          <p class="hero-sub">
+            Empowering students to build, launch and lead
+            through hands-on programs and a vibrant community.
+          </p>
+
+          <div class="hero-buttons">
+         <a href="events.html" class="btn-explore">Explore Events</a>
+
+       
+         </div>
+        </div>
+
+        <!-- Decorative panel (replace with image later if you want) -->
+        <div class="hero-panel" aria-hidden="true"></div>
+      </div>
+    </section>
+<!-- ==================== ABOUT SECTION ==================== -->
+<section id="about" class="section about-section">
+  <div class="container">
+
+    <h1 class="center">About E-Cell</h1>
+
+    <p class="about-para">
+      We cultivate a strong entrepreneurial culture by empowering students through hands-on experiences, flagship programs, mentorship circles,
+      ideation sprints, and incubation pathways. Our mission is to transform raw ideas into scalable, real-world ventures by providing the
+      right environment, guidance, and opportunities to innovate with confidence.
+    </p>
+
+    <div class="about-points-grid">
+
+      <!-- LEFT SIDE -->
+   <ul class="about-points left-points">
+  <li class="about-point">Founder Talks & Leadership Dialogues</li>
+  <li class="about-point">Startup Bootcamps & Skill-Building Workshops</li>
+</ul>
+
+<ul class="about-points right-points">
+  <li class="about-point">Incubation Support & One-on-One Mentorship</li>
+  <li class="about-point">Pitch Competitions & Investor Interactions</li>
+</ul>
+
+    </div>
+
+  </div>
+</section>
+<!-- ================= FLAGSHIP PROGRAMS ================ -->
+<section id="flagship" class="section flagship-section">
+ 
+
+    
+
+    <div class="flagship-bg">
+       <div class="container"><h1 class="center">Venture Initiatives</h1>
+      <div class="flagship-stacks">
+
+    <!-- STACK 1 -->
+    <div class="flagship-stack stack stack-left">
+      <div class="flag-card rise-card">
+ <img 
+  src="img/edc-pic5.jpg" 
+  class="flag-img"
+  data-images='["img/edc-pic5.jpg","img/bhartiyam-25.jpg","img/bhartiyam2-25.jpg","img/edc-pic2.jpg","img/edc-pic3.jpg"]'
+  alt=""
+>
+
+
+        <h4>Pitching event </h4>
+        <p>Showcase your startup idea, get real feedback, and pitch in front of investors, mentors, and incubators.
+A platform where student innovators turn ideas into real opportunities.</p>
+      </div>
+
+    </div>
+
+    <!-- STACK 2 (Shifted Down) -->
+    <div class="flagship-stack stack stack-middle">
+      <div class="flag-card rise-card">
+      <img 
+  src="img/bhartiyam-25.jpg" 
+  class="flag-img"
+  data-images='["img/bhartiyam-25.jpg","img/bhartiyam2-25.jpg","img/edc-pic5.jpg","img/edc-pic2.jpg","img/edc-pic3.jpg"]'
+  alt=""
+>
+
+        <h4>SIPP </h4>
+        <p>Connect with high-growth startups and gain hands-on experience through impactful internships.
+SIPP bridges students with emerging startups for learning, growth, and career exploration.</p>
+      </div>
+
+   
+    </div>
+
+    <!-- STACK 3 -->
+    <div class="flagship-stack stack stack-right">
+      <div class="flag-card rise-card">
+    <img 
+  src="img/bhartiyam2-25.jpg" 
+  class="flag-img"
+  data-images='["img/bhartiyam2-25.jpg","img/bhartiyam-25.jpg","img/edc-pic2.jpg","img/edc-pic5.jpg","img/edc-pic3.jpg"]'
+  alt=""
+>
+
+        <h4> E-Summit 
+</h4>
+        <p>Our biggest annual celebration of entrepreneurship featuring talks, workshops, networking, and startup showcases.
+A grand platform that inspires, empowers, and connects future innovators.</p>
+      </div>
+
+    
+
+</div>
+    </div>
+
+  </div>
+</section>
+<section id="vision" class="section vision-section">
+  <div class="container">
+
+    <!-- Heading -->
+    <h1 class="center">Our Vision</h1>
+
+    <!-- Two-line description -->
+    <p class="vision-sub">
+     Our Vision is to create an entrepreneurial ecosystem where every student feels empowered 
+      to take initiative, think boldly, and build meaningful ventures.
+      We aim to inspire leaders who innovate with purpose and collaborate to shape a better future.
+    </p>
+    
+
+    <!-- 4 points -->
+    <div class="vision-points">
+
+      <div class="vision-point rise-point">
+        <h4>Cultivate Innovation</h4>
+        <p>Encouraging creative exploration and helping ideas develop through structured support.</p>
+      </div>
+
+      <div class="vision-point rise-point">
+        <h4>Enable Skill-Building</h4>
+        <p>Providing hands-on learning that builds strong entrepreneurial and leadership skills.</p>
+      </div>
+
+      <div class="vision-point rise-point">
+        <h4>Foster Collaboration</h4>
+        <p>Bringing students, mentors, and industry experts together to create a thriving network.</p>
+      </div>
+
+      <div class="vision-point rise-point">
+        <h4>Accelerate Growth</h4>
+        <p>Guiding early-stage founders from ideation to impactful execution.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+
+    <!-- ================ NUMBERS ================= -->
+ <section id="fuel" class="section fuel-section">
+ 
+
+  <div class="fuel-bg"><h1 class="center">Fueling Innovation, One Step at a Time</h1>
+    <div class="container fuel-grid">
+
+     <div class="fuel-item">
+  <i class="fas fa-bolt fuel-icon"></i>
+  <span class="count-num" data-target="150">0</span>
+  <p>Startups </p>
+</div>
+
+<div class="fuel-item">
+  <i class="fas fa-users fuel-icon"></i>
+  <span class="count-num" data-target="2000">0</span>
+  <p>Students Reached</p>
+</div>
+
+<div class="fuel-item">
+  <i class="fas fa-chalkboard fuel-icon"></i>
+  <span class="count-num" data-target="100">0</span>
+  <p>Workshops Conducted</p>
+</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SPEAKERS ================= -->
+<section id="speakers" class="section speakers-section">
+  <div class="container">
+    <h1 class="center">Our Speakers</h1>
+
+    <div class="speakers-wrapper">
+
+      <!-- LEFT ARROW -->
+      <button class="speaker-arrow left" id="speakerPrev" disabled>
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <!-- SLIDER TRACK -->
+      <div class="speakers-track">
+
+        <!-- 8 SPEAKER CARDS -->
+        <div class="speaker-card">
+          <img src="img/speaker/shrreya shah.jpg" alt="">
+          <h4>SHRREYA SHAH</h4>
+          <p>Founder Mydvija</p>
+        </div>
+<div class="speaker-card">
+          <img src="img/speaker/dev gandhi.jpg" alt="">
+          <h4>DEV GADHVI
+</h4>
+          <p>Passionpreneur
+&
+Tedx SPEAKER</p>
+        </div>
+        
+
+        <div class="speaker-card">
+          <img src="img/speaker/dhawal chopra.jpg" alt="">
+          <h4>DHAWAL CHOPRA</h4>
+          <p>Founder of cryptal</p>
+        </div>
+
+        <div class="speaker-card">
+          <img src="img/speaker/manjula nair.jpg" alt="">
+          <h4>MANJULA MANJOTRA NAIR</h4>
+          <p>Founder& CEO realbuzzone
+</p>
+        </div><div class="speaker-card">
+          <img src="img/speaker/tushana.jpg" alt="">
+          <h4>TUSHNAA PANDEY NIKAM</h4>
+          <p>Starup mentor/Conslutant</p>
+        </div>
+
+        <div class="speaker-card">
+          <img src="img/speaker/dimitrii.jpg" alt="">
+          <h4>DMITRII KIRILLOV
+</h4>
+          <p>Co-Founder of Door monk & Investor</p>
+        </div>
+
+        <div class="speaker-card">
+          <img src="img/speaker/parthiban.jpg" alt="">
+          <h4>Dr PARTHIBAN
+VIJAYARAGHAVAN</h4>
+          <p>Former ceo of
+leaderonomics</p>
+        </div>
+        <div class="speaker-card">
+          <img src="img/speaker/sumedh.jpg" alt="">
+          <h4>SUMEDH BHALERAO</h4>
+          <p>QBR data speacialist</p>
+        </div>
+
+      </div>
+
+      <!-- RIGHT ARROW -->
+      <button class="speaker-arrow right" id="speakerNext">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+    <!-- ================ TESTIMONIALS ================= -->
+    <section id="testimonials" class="section testimonials">
+      <div class="container">
+        <h1 class="center">What people say</h1>
+
+        <div class="testimonial-row">
+          <figure class="testimonial">
+            <blockquote>
+              “E-Cell helped us validate fast and meet our first investor.”
+            </blockquote>
+            <figcaption>— XXXXX, Alumna Founder</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <blockquote>
+              “Workshops were practical and community-driven. Loved the momentum.”
+            </blockquote>
+            <figcaption>— XXXXX, 3rd Year</figcaption>
+          </figure>
+
+          <figure class="testimonial">
+            <blockquote>
+              “Great platform to network with builders and mentors on campus.”
+            </blockquote>
+            <figcaption>— Prof. Sudhir Kadam, Faculty Mentor</figcaption>
+          </figure>
+        </div>
+      </div>
     </section>
 
+    <!-- Anchor only (real contact UI is in footer) -->
+    <section id="contact" class="section contact-anchor" aria-hidden="true">
+      <div class="container"></div>
+    </section>
+  </main>
+  <!-- ================ FLOATING SOCIAL BAR ================= -->
+  <div class="social-sidebar">
+    <a href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell"
+       class="icon linkedin" target="_blank" rel="noreferrer">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://www.instagram.com/edcbvducoep"
+       class="icon instagram" target="_blank" rel="noreferrer">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="mailto:bhavyachawda19@gmail.com" class="icon mail">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
 
-        <section id="about" class="section about">
-            <div class="container grid-2">
-                <div>
-                    <h2>About E-Cell</h2>
-                    <p>We foster an entrepreneurial mindset by hosting flagship events, mentorship clinics, ideation sprints, and incubation support. Our mission is to turn ideas into impactful ventures.</p>
-                    <ul class="checklist">
-                        <li>Founder talks and AMAs</li>
-                        <li>Startup Bootcamps</li>
-                        <li>Incubation and mentorship</li>
-                        <li>Pitch competitions and grants</li>
-                    </ul>
-                </div>
-                <div class="card highlight">
-                    <h3>Flagship Programs</h3>
-                    <ul class="bullets">
-                        <li>Startup Weekend</li>
-                        <li>Innovation Challenge</li>
-                        <li>Women in Entrepreneurship</li>
-                        <li>Investor Roundtable</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
 
-        <!-- <section id="initiatives" class="section initiatives">
-            <div class="container">
-                <h2 class="center">Our Initiatives</h2>
-                <div class="cards grid-3">
-                    <article class="card">
-                        <h3>Pre-Incubation</h3>
-                        <p>Idea validation, customer discovery, and MVP guidance with mentors.</p>
-                    </article>
-                    <article class="card">
-                        <h3>Skill Labs</h3>
-                        <p>Hands-on workshops on product, growth, design, and fundraising.</p>
-                    </article>
-                    <article class="card">
-                        <h3>Community</h3>
-                        <p>Peer circles, demo days, and networking with founders and investors.</p>
-                    </article>
-                </div>
-            </div>
-        </section> -->
+  <!-- ================ FOOTER ================= -->
+  <footer class="site-footer">
+  <div class="container footer-grid">
 
-        <!-- <section id="events" class="section events">
-            <div class="container">
-                <div class="section-head">
-                    <h2>Upcoming Events</h2>
-                     <div class="filters" role="group" aria-label="Event filters">
-                        <button class="chip active" data-filter="all">All</button>
-                        <button class="chip" data-filter="workshop">Workshop</button>
-                        <button class="chip" data-filter="talk">Talk</button>
-                        <button class="chip" data-filter="competition">Competition</button>
-                     </div> -->
-                <!-- </div>
-                <div class="event-grid">
-                    <article class="event-card" data-type="workshop">
-                        <h3>Speaker Event</h3>
-                        <p>A Speaker Session by few experienced startup owners.</p>
-                        <div class="meta"><span>Sep 29 Monday </span><span>Auditorium</span></div>
-                        <a href="#contact" class="btn btn-light">Register</a>
-                    </article>
-                    <article class="event-card" data-type="talk">
-                        <h3>E-summit</h3>
-                        <p>Tech Fest</p>
-                        <div class="meta"><span>January</span><span>Auditorium</span></div>
-                        <a href="#contact" class="btn btn-light">Register</a>
-                    </article>
-                    <article class="event-card" data-type="competition">
-                        <h3>Bhartiyam Event</h3>
-                        <p>TBD</p>
-                        <div class="meta"><span>Feb/Mar</span><span>TBD</span></div>
-                        <a href="#contact" class="btn btn-light">Register</a>
-                    </article>
-                </div>
-            </div>
-                
+    <!-- COLUMN 1 — CONTACT INFO -->
+    <div class="footer-col footer-contact">
+      <p><strong>Email:</strong> bhavyachawda19@gmail.com</p>
+      <p><strong>Phone:</strong> +91 62635 37991</p>
+      <p><strong>Address:</strong> BVUCOEP, Pune</p>
+      <p><strong>Hours:</strong> Mon–Fri, 10:00–17:00</p>
+    </div>
 
-        </section>  -->
+    <!-- COLUMN 2 — NAV LINKS -->
+    <div class="footer-col footer-links">
+      <a href="index.html">Home</a>
+      <a href="events.html">Events</a>
+      <a href="team.html">Team</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
 
-        <!-- <section id="gallery" class="section gallery">
-            <div class="container">
-                <h2 class="center">Gallery</h2>
-                <div class="gallery-grid">
-                    <a href="img/speaker-1.jpg" class="gallery-item"><img alt="Event" src="img/speaker-1.jpg"></a>
-                    <a href="img/speaker-2.jpg" class="gallery-item"><img alt="Workshop" src="img/speaker-2.jpg"></a>
-                    <a href="img/speaker-3.jpg" class="gallery-item"><img alt="Talk" src="img/speaker-3.jpg"></a>
-                    <a href="img/edc-pic4.jpg" class="gallery-item"><img alt="Hack" src="img/edc-pic4.jpg"></a>
-                    <a href="img/bhartiyam-25.jpg" class="gallery-item"><img alt="Hack" src="img/bhartiyam-25.jpg"></a>
-                    <a href="img/bhartiyam2-25.jpg" class="gallery-item"><img alt="Hack" src="img/bhartiyam2-25.jpg"></a>
-                    <a href="img/bhartiyam3-25.jpg" class="gallery-item"><img alt="Hack" src="img/bhartiyam3-25.jpg"></a>
-                    <a href="img/bhartiyam4-25.jpg" class="gallery-item"><img alt="Hack" src="img/bhartiyam4-25.jpg"></a>
-                    <a href="img/edc-pic5.jpg" class="gallery-item"><img alt="Hack" src="img/edc-pic5.jpg"></a>
-                    <a href="img/edc-pic6.jpg" class="gallery-item"><img alt="Hack" src="img/edc-pic6.jpg"></a>
-                </div>
-            </div>
-        </section> -->
+    <!-- COLUMN 3 — GET IN TOUCH FORM -->
+    <div class="footer-col footer-form">
+      <h3 class="footer-form-title">Get in touch</h3>
+      <p class="footer-form-sub">
+        Collaborations, sponsorships, or joining the team—drop us a message.
+      </p>
 
-        <!-- <section id="team" class="section team">
-            <div class="container">
-                <!-- Core Team -->
-                <!-- <h2 class="center">Core Team</h2>
-                <div class="team-grid">
-                    <article class="person">
-                        <img src="img/members.webp" alt="Overall Head">
-                        <h3>Prajwal Vitkar</h3>
-                        <p>Overall Head & EDC Corrdinator</p>
-                    </article>
-                    <article class="person">
-                        <img src="img/Bhavya.jpg" alt="Overall Head">
-                        <h3>Bhavya Chawda</h3>
-                        <p>Overall Head & Start-up Coordinator</p>
-                    </article>
-                    <article class="person">
-                        <img src="img/members.webp" alt="EDC Co head">
-                        <h3>Vinit Jain</h3>
-                        <p>Co-Head EDC</p>
-                    </article>
-                    <article class="person">
-                        <img src="img/members.webp" alt="Start-up Co head">
-                        <h3>Khushi Jain</h3>
-                        <p>Co-Head Start-up</p>
-                    </article>
-                    <article class="person">
-                        <img src="img/members.webp" alt="Corporate Relation Head">
-                        <h3>Aastha Gami</h3>
-                        <p>Corporate Realtion Head</p>
-                    </article>
-                    <article class="person">
-                        <img src="img/members.webp" alt="Media Head">
-                        <h3>Sahil Bondgulwar</h3>
-                        <p>Media Head</p>
-                    </article>
-                    <article class="person">
-                        <img src="img/members.webp" alt="Graphic Design Head">
-                        <h3>Ishan Kaundal</h3>
-                        <p>Graphic Design Head</p>
-                    </article>
-                    <article class="person">
-                        <img src="img/minakshi.jpg" alt="Public Relation Head">
-                        <h3>Minakshi </h3>
-                        <p>Public Relation Head</p>
-                    </article>
-                    <article class="person">
-                        <img src="img/members.webp" alt="Marketing Head">
-                        <h3>Min Nepali</h3>
-                        <p>Marketing Head</p>
-                    </article>
-                    <article class="person">
-                        <img src="img/members.webp" alt="Technical Head">
-                        <h3>Aarnav Khanna</h3>
-                        <p>Technical Head</p>
-                    </article>
-                    <article class="person">
-                        <img src="img/members.webp" alt="Creativity Head">
-                        <h3>Samar Jagtap</h3>
-                        <p>Creativity Head</p>
-                    </article>
-                    <article class="person">
-                        <img src="img/members.webp" alt="Hr Head">
-                        <h3>Divyansh</h3>
-                        <p>Hr Head</p>
-                    </article>
-            </div>     
+  <form id="footerContact" class="footer-form" novalidate>
 
-                Directors
-                 <h2 class="designation">Directors</h2>
-                 <div class="directors">
-                    <div class="team-grid"></div> 
-                        <h2 class="center">Directors</h2>
-                        <article class="person">
-                                <img src="img/members.webp" alt="Corporate Realation">
-                                <h3>Shruti</h3>
-                                <p>Corporate Realation Director</p>
-                            </article>
-                            <article class="person">
-                                <img src="img/members.webp" alt="Corporate Realation">
-                                <h3>Semal</h3>
-                                <p>Corporate Realation Director</p>
-                            </article>
-                            <article class="person">
-                                <img src="img/members.webp" alt="Technical Director">
-                                <h3>Ansh</h3>
-                                <p>Technical Director</p>
-                            </article>
-                            <article class="person">
-                                <img src="img/members.webp" alt="Technical Director">
-                                <h3>Sreyansh</h3>
-                                <p>Technical Director</p>
-                            </article>
-                            <article class="person">
-                                <img src="img/members.webp" alt="Creativity Director">
-                                <h3>Shreya</h3>
-                                <p>Creativity Director</p>
-                            </article>
-                            <article class="person">
-                                <img src="img/members.webp" alt="Creativity Director">
-                                <h3>Nishu</h3>
-                                <p>Creativity Director</p>
-                            </article>
-                            <article class="person">
-                                <img src="img/members.webp" alt="Graphic Design">
-                                <h3>Vaibhavi Vats</h3>
-                                <p>Graphic Design Director</p>
-                            </article>
-                            <article class="person">
-                                <img src="img/members.webp" alt="Graphic Design">
-                                <h3>Pranav Sharma</h3>
-                                <p>Graphic Design Director</p>
-                            </article>
-                            <article class="person">
-                                <img src="img/members.webp" alt="Media">
-                                <h3>Kshitij Sahu</h3>
-                                <p>Media Director</p>
-                            </article>
-                        <article class="person">
-                                <img src="img/members.webp" alt="Media">
-                                <h3>Akshat Srivastav</h3>
-                                <p>Media Director</p>
-                            </article>
-                            <article class="person">
-                                <img src="img/members.webp" alt="Public Relation">
-                                <h3>Vincy</h3>
-                                <p>Public Relation Director</p>
-                            </article>
-                            <article class="person">
-                                <img src="img/members.webp" alt="Public Relation">
-                                <h3>Om</h3>
-                                <p>Public Relation Director</p>
-                            </article>
-                            <article class="person">
-                                <img src="img/members.webp" alt="Marketing">
-                                <h3>Shivam</h3>
-                                <p>Marketing Director</p>
-                            </article>
-                            <article class="person">
-                                <img src="img/members.webp" alt="Marketing">
-                                <h3>Aviral</h3>
-                                <p>Marketing Director</p>
-                            </article>
-                    </div>
-          
-        </div>
-    </section> -->
+  <label>
+    <span>Email</span>
+    <input name="email" type="email" required placeholder="you@example.com">
+  </label>
 
-        <!-- <section id="sponsors" class="section sponsors">
-            <div class="container">
-                <h2 class="center">Sponsors & Partners</h2>
-                <div class="sponsor-strip">
-                    <img src="img/sponser1.jpg" alt="Sponsor">
-                    <img src="img/sponser4.jpg" alt="Sponsor">
-                    <img src="img/sponser3.jpg" alt="Sponsor">
-                    <img src="img/sponser5.jpg" alt="Sponsor">
-                    <img src="img/sponser6.jpg" alt="Sponsor">
-                    <img src="img/sponser7.png" alt="Sponsor">
-                </div>
-            </div>
-        </section> -->
+  <label>
+    <span>Message</span>
+    <textarea name="message" rows="4" required placeholder="Tell us about your idea"></textarea>
+  </label>
 
-        <section id="testimonials" class="section testimonials">
-            <div class="container">
-                <h2 class="center">What people say</h2>
-                <div class="testimonial-grid">
-                    <figure class="testimonial">
-                        <blockquote>“E-Cell helped us validate fast and meet our first investor.”</blockquote>
-                        <figcaption>— XXXXX, Alumna Founder</figcaption>
-                    </figure>
-                    <figure class="testimonial">
-                        <blockquote>“Workshops were practical and community-driven. Loved the momentum.”</blockquote>
-                        <figcaption>— XXXXX, 3rd Year</figcaption>
-                    </figure>
-                    <figure class="testimonial">
-                        <blockquote>“Great platform to network with builders and mentors on campus.”</blockquote>
-                        <figcaption>— Prof. Sudhir Kadam, Faculty Mentor</figcaption>
-                    </figure>
-                </div>
-            </div>
-        </section>
+  <button type="submit" class="btn footer-btn">Send</button>
 
-        <section id="newsletter" class="section newsletter">
-            <div class="container">
-                <div class="newsletter-inner card">
-                    <h2>Subscribe to our newsletter</h2>
-                    <p class="muted">Get monthly updates on events, opportunities, and startup resources.</p>
-                    <form id="newsletterForm" class="newsletter-form" novalidate>
-                        <input type="email" name="email" placeholder="you@example.com" required>
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                        <span id="newsletterStatus" role="status" aria-live="polite"></span>
-                    </form>
-                </div>
-            </div>
-        </section>
+  <p id="footerStatus" aria-live="polite"></p>
+</form>
+    </div>
 
-        <section id="contact" class="section contact">
-            <div class="container grid-2">
-                <div>
-                    <h2>Get in touch</h2>
-                    <p>Collaborations, sponsorships, or joining the team—drop us a note and we’ll get back.</p>
-                    <ul class="contact-list">
-                        <li><strong>Email:</strong> bhavyachawda19@gmail.com</li>
-                        <li><strong>Ph.No</strong>+916263537991</li>
-                        <li><strong>Address:</strong> Bharti Vidyapeeth College Of Engineering, Pune</li>
-                        <li><strong>Hours:</strong> Mon–Fri, 10:00–17:00</li>
-                    </ul>
-                </div>
-                <form id="contactForm" class="card form" novalidate>
-                    <div class="row">
-                        <label>
-                            <span>Name</span>
-                            <input type="text" name="name" required minlength="2" placeholder="Your name">
-                        </label>
-                        <label>
-                            <span>Email</span>
-                            <input type="email" name="email" required placeholder="you@example.com">
-                        </label>
-                    </div>
-                    <label>
-                        <span>Message</span>
-                        <textarea name="message" required minlength="10" rows="5" placeholder="Tell us about your idea..."></textarea>
-                    </label>
-                    <div class="form-foot">
-                        <button type="submit" class="btn btn-primary">Send</button>
-                        <p id="formStatus" role="status" aria-live="polite"></p>
-                    </div>
-                </form>
-            </div>
-        </section>
-        <section>
-            <!-- Social Media Sidebar -->
-            <div class="social-sidebar">
-            <a href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell/about/?viewAsMember=true" target="_blank" class="icon linkedin">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://www.instagram.com/edcbvducoep?igsh=eng5ZngzN3V6c2Zs" target="_blank" class="icon instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="mailto:bhavyachawda19@gmail.com" class="icon mail">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <!-- <a href="https://github.com/your-link" target="_blank" class="icon github">
-                <i class="fab fa-github"></i>
-            </a> -->
-            </div>
-        </section>
-    </main>
+    <!-- COLUMN 4 — SOCIAL + COPYRIGHT -->
+    <div class="footer-col footer-social">
+      <p class="follow-title">Follow Us On:</p>
 
-     <footer class="site-footer">
-        <div class="container footer-inner">
-            <p>© <span id="year"></span> E-Cell • Built by Bhavya Chawda| Ansh Tarsoliya <br> bhavyachawda19@gmail.com</p>
-            <ul class="contact-list">
-                        <li><strong>Email:</strong> bhavyachawda19@gmail.com</li>
-                        <li><strong>Ph.No</strong>+916263537991</li>
-                        <li><strong>Address:</strong> Bharti Vidyapeeth College Of Engineering, Pune</li>
-                        <li><strong>Hours:</strong> Mon–Fri, 10:00 Am–17:00 Pm</li>
-                    </ul>
-            <a href="#top" class="to-top" aria-label="Back to top">↑</a>
-        </div>
-    </footer>
+      <div class="social-icons">
+        <a class="icon" href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a class="icon" href="https://www.instagram.com/edcbvducoep" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a class="icon" href="mailto:bhavyachawda19@gmail.com">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </div>
 
-    <script src="main.js"></script>
+      <p class="copyright">© 2025 E-Cell<br>Built by Bhavya | Ansh</p>
+    </div>
+
+  </div>
+</footer>
+
+  <!-- Scripts -->
+  <script src="main.js"></script>
+  <script>
+    // Set year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
-
-
-
