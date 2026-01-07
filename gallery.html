@@ -1,134 +1,222 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Team</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Gallery | E-Cell</title>
+
+  <meta name="description" content="Gallery.">
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header class="site-header" >
-        <div class="container header-inner">
-            <a class="brand" href="#top" aria-label="E-Cell Home">
-                <img src="img/edc-logo.jpg" alt="E-Cell Logo" class="logo" width="66" height="66">
-                <span class="brand-text"></span>
-            </a>
-            <button class="nav-toggle"  aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
-                <span></span><span></span><span></span>
-            </button>
-            <nav>
-                <ul id="primaryNav" class="nav" aria-label="Primary">
 
-                    <li><a href="index.html">Home</a></li>
-                    <!-- <li><a href="#about">About</a></li> -->
-                    <!-- <li><a href="#initiatives">Initiatives</a></li> -->
-                    <li><a href="events.html">Events</a></li>
-                    <li><a href="team.html">Team</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <!-- <li><a href="#sponsors">Sponsors</a></li> -->
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact" class="btn btn-primary">Contact</a></li>
-                    <li class="dropdown">
-                       <a href="#" class="dropbtn">Join Us</a>
-                        <div class="dropdown-content">
-                        <a href="/register.html">Register</a>
-                        <a href="/login.html">Login</a>
-                        </div>
-                    </li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+<body id="top">
+
+  <!-- ================= HEADER ================= -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="E-Cell Home">
+        <img src="img/edc-logo-removebg-preview.png" alt="E-Cell logo" class="logo" width="150" height="130">
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Toggle Navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav>
+        <ul id="primaryNav" class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>     <li><a href="events.html" class="active">Events</a></li>
+          <li><a href="team.html">Team</a></li>
+          <li><a href="index.html#contact" >Contact</a></li>
+       
+        </ul>
+      </nav>
+    </div>
+  </header>
+<section class="video-hero">
+  <video class="bg-video" autoplay muted loop playsinline>
+    <source src="img/gallery/gallery-ecell_qDrSMyCd.mp4" type="video/mp4">
+  </video>
+
+  <div class="hero-overlay">
+    <h2>Gallery</h2>
+  </div>
+</section>
+
+
+  <!-- ================= EVENTS SECTION ================= -->
+  
 <main>
-     <section id="gallery" class="section gallery">
-            <div class="container">
-                <h2 class="center">Gallery</h2>
-                <div class="gallery-grid">
-                    <a href="img/speaker-1.jpg" class="gallery-item"><img alt="Event" src="img/speaker-1.jpg"></a>
-                    <a href="img/speaker-2.jpg" class="gallery-item"><img alt="Workshop" src="img/speaker-2.jpg"></a>
-                    <a href="img/speaker-3.jpg" class="gallery-item"><img alt="Talk" src="img/speaker-3.jpg"></a>
-                    <a href="img/edc-pic4.jpg" class="gallery-item"><img alt="Hack" src="img/edc-pic4.jpg"></a>
-                    <a href="img/bhartiyam-25.jpg" class="gallery-item"><img alt="Hack" src="img/bhartiyam-25.jpg"></a>
-                    <a href="img/edc-pic2.jpg" class="gallery-item"><img alt="Hack" src="img/edc-pic2.jpg"></a>
-                    <a href="img/edc-pic1.jpg" class="gallery-item"><img alt="Hack" src="img/edc-pic1.jpg"></a>
-                    <a href="img/edc-pic3.jpg" class="gallery-item"><img alt="Hack" src="img/edc-pic3.jpg"></a>
-                    <a href="img/edc-pic5.jpg" class="gallery-item"><img alt="Hack" src="img/edc-pic5.jpg"></a>
-                    <a href="img/edc-pic6.jpg" class="gallery-item"><img alt="Hack" src="img/edc-pic6.jpg"></a>
-                </div>
-            </div>
-        </section>
-         <section id="contact" class="section contact">
-            <div class="container grid-2">
-                <div>
-                    <h2>Get in touch</h2>
-                    <p>Collaborations, sponsorships, or joining the team—drop us a note and we’ll get back.</p>
-                    <ul class="contact-list">
-                        <li><strong>Email:</strong> bhavyachawda19@gmail.com</li>
-                        <li><strong>Ph.No</strong>+916263537991</li>
-                        <li><strong>Address:</strong> Bharti Vidyapeeth College Of Engineering, Pune</li>
-                        <li><strong>Hours:</strong> Mon–Fri, 10:00–17:00</li>
-                    </ul>
-                </div>
-                <form id="contactForm" class="card form" novalidate>
-                    <div class="row">
-                        <label>
-                            <span>Name</span>
-                            <input type="text" name="name" required minlength="2" placeholder="Your name">
-                        </label>
-                        <label>
-                            <span>Email</span>
-                            <input type="email" name="email" required placeholder="you@example.com">
-                        </label>
-                    </div>
-                    <label>
-                        <span>Message</span>
-                        <textarea name="message" required minlength="10" rows="5" placeholder="Tell us about your idea..."></textarea>
-                    </label>
-                    <div class="form-foot">
-                        <button type="submit" class="btn btn-primary">Send</button>
-                        <p id="formStatus" role="status" aria-live="polite"></p>
-                    </div>
-                </form>
-            </div>
-        </section>
-        <section>
-            <!-- Social Media Sidebar -->
-            <div class="social-sidebar">
-            <a href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell/about/?viewAsMember=true" target="_blank" class="icon linkedin">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://www.instagram.com/edcbvducoep?igsh=eng5ZngzN3V6c2Zs" target="_blank" class="icon instagram">
-                <i class="fab fa-instagram"></i>
-            </a>
-            <a href="mailto:bhavyachawda19@gmail.com" class="icon mail">
-                <i class="fas fa-envelope"></i>
-            </a>
-            <!-- <a href="https://github.com/your-link" target="_blank" class="icon github">
-                <i class="fab fa-github"></i>
-            </a> -->
-            </div>
-        </section>
-    </main>
+<section class="event-gallery section">
 
-     <footer class="site-footer">
-        <div class="container footer-inner">
-            <p>© <span id="year"></span> E-Cell • Built by Bhavya Chawda| Ansh Tarsoliya <br> bhavyachawda19@gmail.com</p>
-            <ul class="contact-list">
-                        <li><strong>Email:</strong> bhavyachawda19@gmail.com</li>
-                        <li><strong>Ph.No</strong>+916263537991</li>
-                        <li><strong>Address:</strong> Bharti Vidyapeeth College Of Engineering, Pune</li>
-                        <li><strong>Hours:</strong> Mon–Fri, 10:00–17:00</li>
-                    </ul>
-            <a href="#top" class="to-top" aria-label="Back to top">↑</a>
-        </div>
-    </footer>
+  <!-- EVENT 1 -->
+  <h2 class="center">Speaker Session</h2>
 
-    <script src="assets/js/main.js"></script>
+  <div class="event-slider">
 
+    <button class="event-arrow left">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <div class="event-track">
+      <img src="img/bhartiyam-25.jpg" alt="">
+      <img src="img/bhartiyam2-25.jpg" alt="">
+      <img src="img/edc-pic1.jpg" alt="">
+      <img src="img/edc-pic2.jpg" alt="">
+      <img src="img/edc-pic3.jpg" alt="">
+      <img src="img/edc-pic5.jpg" alt="">
+      <img src="img/edc-pic6.jpg" alt="">
+     
+      
+    </div>
+
+    <button class="event-arrow right">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+  </div>
+
+
+  <!-- EVENT 2 -->
+  <h2 class="center">E-Summit</h2>
+
+  <div class="event-slider">
+
+    <button class="event-arrow left">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <div class="event-track">
+      <img src="img/edc-pic6.jpg" alt="">
+      <img src="img/edc-pic5.jpg" alt="">
+      <img src="img/edc-pic3.jpg" alt="">
+      <img src="img/edc-pic2.jpg" alt="">
+      <img src="img/edc-pic1.jpg" alt="">
+      <img src="img/bhartiyam2-25.jpg" alt="">
+      <img src="img/bhartiyam2-25.jpg" alt="">
     
+      
+      
+    </div>
+
+    <button class="event-arrow right">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+  </div>
+
+
+  <!-- EVENT 3 -->
+  <h2 class="center">Startup Bootcamp</h2>
+
+  <div class="event-slider">
+
+    <button class="event-arrow left">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <div class="event-track">
+      <img src="img/edc-pic1.jpg" alt="">
+      <img src="img/bhartiyam2-25.jpg" alt="">
+      <img src="img/bhartiyam-25.jpg" alt="">
+      <img src="img/edc-pic2.jpg" alt="">
+      <img src="img/edc-pic3.jpg" alt="">
+      <img src="img/edc-pic5.jpg" alt="">
+      <img src="img/edc-pic6.jpg" alt="">
+      
+
+    </div>
+
+    <button class="event-arrow right">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+
+  </div>
+
+</section>
+
+
+</main>
+  <!-- ================ FLOATING SOCIAL BAR ================= -->
+  <div class="social-sidebar">
+    <a href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell"
+       class="icon linkedin" target="_blank" rel="noreferrer">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+    <a href="https://www.instagram.com/edcbvducoep"
+       class="icon instagram" target="_blank" rel="noreferrer">
+      <i class="fab fa-instagram"></i>
+    </a>
+    <a href="mailto:bhavyachawda19@gmail.com" class="icon mail">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+
+  <!-- ================ FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+
+      <div class="footer-col footer-contact">
+        <p><strong>Email:</strong> bhavyachawda19@gmail.com</p>
+        <p><strong>Phone:</strong> +91 62635 37991</p>
+        <p><strong>Address:</strong> BVUCOEP, Pune</p>
+        <p><strong>Hours:</strong> Mon–Fri, 10:00–17:00</p>
+      </div>
+
+      <div class="footer-col footer-links">
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="team.html">Team</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <div class="footer-col footer-form">
+        <h3 class="footer-form-title">Get in touch</h3>
+        <p class="footer-form-sub">Collaborations, sponsorships, or joining the team—drop us a message.</p>
+
+        <form id="footerContact">
+          <label>
+            <span>Email</span>
+            <input name="email" type="email" required placeholder="you@example.com">
+          </label>
+
+          <label>
+            <span>Message</span>
+            <textarea name="message" rows="4" required placeholder="Tell us about your idea"></textarea>
+          </label>
+
+          <button type="submit" class="btn footer-btn">Send</button>
+          <p id="footerStatus"></p>
+        </form>
+      </div>
+
+      <div class="footer-col footer-social">
+        <p class="follow-title">Follow Us:</p>
+
+        <div class="social-icons">
+          <a class="icon" href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell"><i class="fab fa-linkedin-in"></i></a>
+          <a class="icon" href="https://www.instagram.com/edcbvducoep"><i class="fab fa-instagram"></i></a>
+          <a class="icon" href="mailto:bhavyachawda19@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+
+        <p class="copyright">© 2025 E-Cell<br>Built by Bhavya | Ansh</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="main.js"></script>
+
 </body>
 </html>
