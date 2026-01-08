@@ -1,296 +1,296 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Events | E-Cell</title>
+  <!doctype html>
+  <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <title>Events | E-Cell</title>
 
-  <meta name="description" content="Explore upcoming events hosted by E-Cell.">
-  
-  <!-- Fonts & Icons -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <meta name="description" content="Explore upcoming events hosted by E-Cell.">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="style.css">
-</head>
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+  </head>
 
-<body id="top">
+  <body id="top">
 
-  <!-- ================= HEADER ================= -->
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html" aria-label="E-Cell Home">
-        <img src="img/edc-logo-removebg-preview.png" alt="E-Cell logo" class="logo" width="150" height="130">
+    <!-- ================= HEADER ================= -->
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="E-Cell Home">
+          <img src="img/edc-logo-removebg-preview.png" alt="E-Cell logo" class="logo" width="150" height="130">
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Toggle Navigation">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav>
+          <ul id="primaryNav" class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="events.html" class="active">Events</a></li>
+            <li><a href="team.html">Team</a></li>
+            <li><a href="index.html#contact" >Contact</a></li>
+          
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+
+    <!-- ================= EVENTS SECTION ================= -->
+  <section class="team-hero">
+
+    <div class="event-hero-row">
+
+      <a href="#past-events" class="event-scroll-link left">
+        Past Events
       </a>
 
-      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-label="Toggle Navigation">
-        <span></span><span></span><span></span>
-      </button>
+      <h2>Events</h2>
 
-      <nav>
-        <ul id="primaryNav" class="nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-           <li><a href="events.html" class="active">Events</a></li>
-           <li><a href="team.html">Team</a></li>
-          <li><a href="index.html#contact" >Contact</a></li>
-        
-        </ul>
-      </nav>
+      <a href="#upcoming-events" class="event-scroll-link right">
+        Upcoming Events
+      </a>
+
     </div>
-  </header>
+
+  </section>
 
 
-  <!-- ================= EVENTS SECTION ================= -->
- <section class="team-hero">
+    <main>
+  <section id="events" class="section events">
+    <div class="container">
 
-  <div class="event-hero-row">
+      <!-- ================= PAST EVENTS ================= -->
+      <section id="past-events" class="section events"></section>
 
-    <a href="#past-events" class="event-scroll-link left">
-      Past Events
-    </a>
-
-    <h2>Events</h2>
-
-    <a href="#upcoming-events" class="event-scroll-link right">
-      Upcoming Events
-    </a>
-
-  </div>
-
-</section>
-
-
-  <main>
-<section id="events" class="section events">
-  <div class="container">
-
-    <!-- ================= PAST EVENTS ================= -->
-    <section id="past-events" class="section events"></section>
-
-    <section class="past-events">
-      <h1 class="center">Past Events</h1>
-<br>
+      <section class="past-events">
+        <h1 class="center">Past Events</h1>
+  <br>
 
 
 
-<p class="events-subtext">
-  A look back at the events that shaped our entrepreneurial journey.
-</p>
+  <p class="events-subtext">
+    A look back at the events that shaped our entrepreneurial journey.
+  </p>
 
-      <div class="past-events-list">
+        <div class="past-events-list">
 
-        <!-- Past Event 1 -->
-        <article class="past-event-card">
-          <div class="past-event-img">
-            <img src="img/event1.jpg" alt="Speaker Session">
-          </div>
+          <!-- Past Event 1 -->
+          <article class="past-event-card">
+            <div class="past-event-img">
+              <img src="img/event1.jpg" alt="Speaker Session">
+            </div>
 
-          <div class="past-event-content">
-            <h3>Speaker Session</h3>
-            <p>
-              An inspiring session with experienced startup founders sharing
-              real-world insights, failures, and growth strategies.
-            </p>
-
-            <div class="past-event-more">
+            <div class="past-event-content">
+              <h3>Speaker Session</h3>
               <p>
-                The session covered funding challenges, real startup failures,
-                product-market fit, and gave students actionable advice on
-                starting their own ventures.
+                An inspiring session with experienced startup founders sharing
+                real-world insights, failures, and growth strategies.
               </p>
+
+              <div class="past-event-more">
+                <p>
+                  The session covered funding challenges, real startup failures,
+                  product-market fit, and gave students actionable advice on
+                  starting their own ventures.
+                </p>
+              </div>
+
+              <button class="past-readmore">Read more </button>
             </div>
-
-            <button class="past-readmore">Read more </button>
-          </div>
-        </article>
-
-        <!-- Past Event 2 -->
-        <article class="past-event-card">
-          <div class="past-event-img">
-            <img src="img/event2.jpg" alt="Startup Bootcamp">
-          </div>
-
-          <div class="past-event-content">
-            <h3>Startup Bootcamp</h3>
-            <p>
-              A hands-on bootcamp guiding students from idea validation
-              to prototype development and pitching.
-            </p>
-
-            <div class="past-event-more">
-              <p>
-                Students worked in teams to build prototypes, validate ideas,
-                and pitch their startups to mentors and faculty members.
-              </p>
-            </div>
-
-            <button class="past-readmore">Read more </button>
-          </div>
-        </article>
-
-        <!-- Past Event 3 -->
-        <article class="past-event-card">
-          <div class="past-event-img">
-            <img src="img/event3.jpg" alt="E-Summit">
-          </div>
-
-          <div class="past-event-content">
-            <h3>E-Summit</h3>
-            <p>
-              Our flagship entrepreneurship summit featuring talks,
-              networking, workshops, and startup showcases.
-            </p>
-
-            <div class="past-event-more">
-              <p>
-                The event featured keynote speakers, panel discussions,
-                startup exhibitions, and interactive networking sessions.
-              </p>
-            </div>
-
-            <button class="past-readmore">Read more </button>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-  </div>
-</section>
-
-<section id="upcoming-events" class="section events">
-        <h1 class="center">Upcoming Events</h1>
-<br>
-<br>
-        <!-- Event Cards Grid -->
-        <div class="event-grid">
-
-          <!-- Event 1 -->
-          <article class="event-card">
-            <h3>Speaker Event</h3>
-            <p>A Speaker Session by experienced startup founders.</p>
-            <div class="meta">
-              <span>Sept 29, Monday</span>
-              <span>Auditorium</span>
-            </div>
-            <a href="index.html#contact" class="btn btn-light">Register</a>
           </article>
 
-          <!-- Event 2 -->
-          <article class="event-card">
-            <h3>E-Summit 2026</h3>
-            <p>Tech fest with workshops, startup panels & competitions.</p>
-            <div class="meta">
-              <span>January 2026</span>
-              <span>BVP Campus</span>
+          <!-- Past Event 2 -->
+          <article class="past-event-card">
+            <div class="past-event-img">
+              <img src="img/event2.jpg" alt="Startup Bootcamp">
             </div>
-            <a href="index.html#contact" class="btn btn-light">Register</a>
+
+            <div class="past-event-content">
+              <h3>Startup Bootcamp</h3>
+              <p>
+                A hands-on bootcamp guiding students from idea validation
+                to prototype development and pitching.
+              </p>
+
+              <div class="past-event-more">
+                <p>
+                  Students worked in teams to build prototypes, validate ideas,
+                  and pitch their startups to mentors and faculty members.
+                </p>
+              </div>
+
+              <button class="past-readmore">Read more </button>
+            </div>
           </article>
 
-          <!-- Event 3 -->
-          <article class="event-card">
-            <h3>Entrepreneurship Bootcamp</h3>
-            <p>Hands-on roadmap: Idea → Prototype → Pitch.</p>
-            <div class="meta">
-              <span>December 2025</span>
-              <span>Innovation Hub</span>
+          <!-- Past Event 3 -->
+          <article class="past-event-card">
+            <div class="past-event-img">
+              <img src="img/event3.jpg" alt="E-Summit">
             </div>
-            <a href="index.html#contact" class="btn btn-light">Register</a>
-          </article>
 
-          <!-- Event 4 -->
-          <article class="event-card">
-            <h3>Bhartiyam Event</h3>
-            <p>College-wide creative & technical showcase.</p>
-            <div class="meta">
-              <span>Feb–Mar</span>
-              <span>TBD</span>
+            <div class="past-event-content">
+              <h3>E-Summit</h3>
+              <p>
+                Our flagship entrepreneurship summit featuring talks,
+                networking, workshops, and startup showcases.
+              </p>
+
+              <div class="past-event-more">
+                <p>
+                  The event featured keynote speakers, panel discussions,
+                  startup exhibitions, and interactive networking sessions.
+                </p>
+              </div>
+
+              <button class="past-readmore">Read more </button>
             </div>
-            <a href="index.html#contact" class="btn btn-light">Register</a>
           </article>
 
         </div>
-      </div>
-    </section>
-    </section>
-  </main>
-
-  <!-- ================ FLOATING SOCIAL BAR ================= -->
-  <div class="social-sidebar">
-    <a href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell"
-       class="icon linkedin" target="_blank" rel="noreferrer">
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-    <a href="https://www.instagram.com/edcbvducoep"
-       class="icon instagram" target="_blank" rel="noreferrer">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="mailto:bhavyachawda19@gmail.com" class="icon mail">
-      <i class="fas fa-envelope"></i>
-    </a>
-  </div>
-
-  <!-- ================ FOOTER ================= -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-
-      <div class="footer-col footer-contact">
-        <p><strong>Email:</strong> bhavyachawda19@gmail.com</p>
-        <p><strong>Phone:</strong> +91 62635 37991</p>
-        <p><strong>Address:</strong> BVUCOEP, Pune</p>
-        <p><strong>Hours:</strong> Mon–Fri, 10:00–17:00</p>
-      </div>
-
-      <div class="footer-col footer-links">
-        <a href="index.html">Home</a>
-        <a href="events.html">Events</a>
-        <a href="team.html">Team</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#contact">Contact</a>
-      </div>
-
-      <div class="footer-col footer-form">
-        <h3 class="footer-form-title">Get in touch</h3>
-        <p class="footer-form-sub">Collaborations, sponsorships, or joining the team—drop us a message.</p>
-
-        <form id="footerContact">
-          <label>
-            <span>Email</span>
-            <input name="email" type="email" required placeholder="you@example.com">
-          </label>
-
-          <label>
-            <span>Message</span>
-            <textarea name="message" rows="4" required placeholder="Tell us about your idea"></textarea>
-          </label>
-
-          <button type="submit" class="btn footer-btn">Send</button>
-          <p id="footerStatus"></p>
-        </form>
-      </div>
-
-      <div class="footer-col footer-social">
-        <p class="follow-title">Follow Us:</p>
-
-        <div class="social-icons">
-          <a class="icon" href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell"><i class="fab fa-linkedin-in"></i></a>
-          <a class="icon" href="https://www.instagram.com/edcbvducoep"><i class="fab fa-instagram"></i></a>
-          <a class="icon" href="mailto:bhavyachawda19@gmail.com"><i class="fas fa-envelope"></i></a>
-        </div>
-
-        <p class="copyright">© 2025 E-Cell<br>Built by Bhavya | Ansh</p>
-      </div>
+      </section>
 
     </div>
-  </footer>
+  </section>
 
-  <!-- JS -->
-  <script src="main.js"></script>
+  <section id="upcoming-events" class="section events">
+          <h1 class="center">Upcoming Events</h1>
+  <br>
+  <br>
+          <!-- Event Cards Grid -->
+          <div class="event-grid">
 
-</body>
-</html>
+            <!-- Event 1 -->
+            <article class="event-card">
+              <h3>Speaker Event</h3>
+              <p>A Speaker Session by experienced startup founders.</p>
+              <div class="meta">
+                <span>Sept 29, Monday</span>
+                <span>Auditorium</span>
+              </div>
+              <a href="index.html#contact" class="btn btn-light">Register</a>
+            </article>
+
+            <!-- Event 2 -->
+            <article class="event-card">
+              <h3>E-Summit 2026</h3>
+              <p>Tech fest with workshops, startup panels & competitions.</p>
+              <div class="meta">
+                <span>January 2026</span>
+                <span>BVP Campus</span>
+              </div>
+              <a href="index.html#contact" class="btn btn-light">Register</a>
+            </article>
+
+            <!-- Event 3 -->
+            <article class="event-card">
+              <h3>Entrepreneurship Bootcamp</h3>
+              <p>Hands-on roadmap: Idea → Prototype → Pitch.</p>
+              <div class="meta">
+                <span>December 2025</span>
+                <span>Innovation Hub</span>
+              </div>
+              <a href="index.html#contact" class="btn btn-light">Register</a>
+            </article>
+
+            <!-- Event 4 -->
+            <article class="event-card">
+              <h3>Bhartiyam Event</h3>
+              <p>College-wide creative & technical showcase.</p>
+              <div class="meta">
+                <span>Feb–Mar</span>
+                <span>TBD</span>
+              </div>
+              <a href="index.html#contact" class="btn btn-light">Register</a>
+            </article>
+
+          </div>
+        </div>
+      </section>
+      </section>
+    </main>
+
+    <!-- ================ FLOATING SOCIAL BAR ================= -->
+    <div class="social-sidebar">
+      <a href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell" aria-label="linkedin"
+        class="icon linkedin" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://www.instagram.com/edcbvducoep" aria-label="instagram"
+        class="icon instagram" target="_blank" rel="noopener noreferrer">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="mailto:bhavyachawda19@gmail.com" aria-label="mail" class="icon mail">
+        <i class="fas fa-envelope"></i>
+      </a>
+    </div>
+
+    <!-- ================ FOOTER ================= -->
+    <footer class="site-footer">
+      <div class="container footer-grid">
+
+        <div class="footer-col footer-contact">
+          <p><strong>Email:</strong> bhavyachawda19@gmail.com</p>
+          <p><strong>Phone:</strong> +91 62635 37991</p>
+          <p><strong>Address:</strong> BVUCOEP, Pune</p>
+          <p><strong>Hours:</strong> Mon–Fri, 10:00–17:00</p>
+        </div>
+
+        <div class="footer-col footer-links">
+          <a href="index.html">Home</a>
+          <a href="events.html">Events</a>
+          <a href="team.html">Team</a>
+          <a href="index.html#about">About</a>
+          <a href="index.html#contact">Contact</a>
+        </div>
+
+        <div class="footer-col footer-form">
+          <h3 class="footer-form-title">Get in touch</h3>
+          <p class="footer-form-sub">Collaborations, sponsorships, or joining the team—drop us a message.</p>
+
+          <form id="footerContact">
+            <label>
+              <span>Email</span>
+              <input name="email" type="email" required placeholder="you@example.com">
+            </label>
+
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="4" required placeholder="Tell us about your idea"></textarea>
+            </label>
+
+            <button type="submit" class="btn footer-btn">Send</button>
+            <p id="footerStatus"></p>
+          </form>
+        </div>
+
+        <div class="footer-col footer-social">
+          <p class="follow-title">Follow Us:</p>
+
+          <div class="social-icons">
+            <a class="icon" href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell" aria-label="linkedin"><i class="fab fa-linkedin-in"></i></a>
+            <a class="icon" href="https://www.instagram.com/edcbvducoep" aria-label="instagram"><i class="fab fa-instagram"></i></a>
+            <a class="icon" href="mailto:bhavyachawda19@gmail.com" aria-label="mail"><i class="fas fa-envelope"></i></a>
+          </div>
+
+          <p class="copyright">© 2025 E-Cell<br>Built by Bhavya Chawda | Vaibhavi Vats | Ansh Tarsoliya</p>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="main.js"></script>
+
+  </body>
+  </html> 
