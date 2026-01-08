@@ -1034,8 +1034,12 @@ a:hover {
   gap: 12px;
   padding: 10px;
   border-radius: 30px;
-  background: rgba(17, 24, 39, 0.8);
+  background: rgba(15, 23, 42, 0.75);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   z-index: 999;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .social-sidebar .icon {
@@ -1047,13 +1051,17 @@ a:hover {
   background: #111827;
   color: var(--text-white);
   border-radius: 50%;
+  transition: all 0.3s ease;
 }
 
 .social-sidebar .icon:hover {
   background: #6b7280 !important;
-  /* grey on hover */
   color: var(--text-white) !important;
   transform: scale(1.1);
+}
+
+.social-sidebar .icon:active {
+  transform: scale(0.95);
 }
 
 /* =======================
@@ -1116,22 +1124,34 @@ a:hover {
   }
 
   .testimonial-row {
-    flex-direction: column;
-    gap: 24px;
+    flex-direction: row;
+    gap: 12px;
     padding: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .testimonial-row::-webkit-scrollbar {
+    display: none;
   }
 
   .testimonial {
-    text-align: center;
-    width: 100%;
+    flex: 0 0 calc(100% - 24px);
+    min-width: calc(100% - 24px);
+    max-width: calc(100% - 24px);
+    text-align: left;
+    scroll-snap-align: start;
   }
 
   .testimonial blockquote {
-    text-align: center;
+    text-align: left;
   }
 
   .testimonial figcaption {
-    text-align: center;
+    text-align: left;
   }
 
   .footer-grid {
@@ -1152,8 +1172,19 @@ a:hover {
   }
 
   .social-sidebar {
-    display: none;
-    /* Hide on mobile/tablet to avoid clutter, relying on footer */
+    display: flex;
+    right: 12px;
+    padding: 8px;
+    gap: 10px;
+    background: rgba(15, 23, 42, 0.75);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .social-sidebar .icon {
+    width: 36px;
+    height: 36px;
   }
 
   /* mobile nav behavior */
@@ -2104,36 +2135,42 @@ a:hover {
   }
 
   .testimonial-row {
-    flex-direction: column;
-    gap: 20px;
+    flex-direction: row;
+    gap: 12px;
     padding: 0;
     margin-top: 20px;
     width: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .testimonial-row::-webkit-scrollbar {
+    display: none;
   }
 
   .testimonial {
-    width: 100%;
-    max-width: 100%;
+    flex: 0 0 calc(100% - 24px);
+    min-width: calc(100% - 24px);
+    max-width: calc(100% - 24px);
     padding: 20px 18px;
     box-sizing: border-box;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: left;
+    scroll-snap-align: start;
   }
 
   .testimonial blockquote {
     font-size: 16px;
-    text-align: center;
+    text-align: left;
     margin: 0 0 12px 0;
-    width: 100%;
     line-height: 1.6;
   }
 
   .testimonial figcaption {
     font-size: 13px;
-    text-align: center;
-    width: 100%;
+    text-align: left;
   }
 
   /* Footer */
@@ -2179,7 +2216,19 @@ a:hover {
 
   /* Social Sidebar - Hide on mobile */
   .social-sidebar {
-    display: none;
+    display: flex;
+    right: 10px;
+    padding: 6px;
+    gap: 8px;
+    background: rgba(15, 23, 42, 0.75);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .social-sidebar .icon {
+    width: 32px;
+    height: 32px;
   }
 
   /* Event Hero */
