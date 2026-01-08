@@ -197,32 +197,174 @@ if (visionSection) {
 
 
 /* ============================================================
-   SPEAKER SLIDER
+   SPEAKER SLIDER WITH TOUCH/SWIPE AND MOUSE DRAG
 ============================================================ */
 (function () {
   const track = document.querySelector(".speakers-track");
   if (!track) return;
 
-  const cardWidth = 216; // 200px card + 16px gap
-  let index = 0;
-
   const prev = document.getElementById("speakerPrev");
   const next = document.getElementById("speakerNext");
 
-  next.addEventListener("click", () => {
-    index++;
-    track.scrollTo({ left: index * cardWidth, behavior: "smooth" });
+  // Calculate card width dynamically
+  const getCardWidth = () => {
+    const firstCard = track.querySelector(".speaker-card");
+    if (!firstCard) return 216; // fallback
+    const cardStyle = window.getComputedStyle(firstCard);
+    const cardWidth = firstCard.offsetWidth;
+    const gap = parseInt(cardStyle.marginRight) || 16;
+    return cardWidth + gap;
+  };
 
-    prev.disabled = index === 0;
-    next.disabled = index >= 3;
+  // Update arrow states
+  const updateArrows = () => {
+    const cardWidth = getCardWidth();
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    const currentScroll = track.scrollLeft;
+    
+    // Calculate approximate index
+    const index = Math.round(currentScroll / cardWidth);
+    const maxIndex = Math.floor(maxScroll / cardWidth);
+    
+    if (prev) {
+      prev.disabled = currentScroll <= 0;
+    }
+    if (next) {
+      next.disabled = currentScroll >= maxScroll - 5; // 5px tolerance
+    }
+  };
+
+  // Scroll to specific index
+  const scrollToIndex = (targetIndex, smooth = true) => {
+    const cardWidth = getCardWidth();
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    const maxIndex = Math.floor(maxScroll / cardWidth);
+    
+    const index = Math.max(0, Math.min(targetIndex, maxIndex));
+    track.scrollTo({ 
+      left: index * cardWidth, 
+      behavior: smooth ? "smooth" : "auto" 
+    });
+  };
+
+  // Arrow button handlers
+  let currentIndex = 0;
+  
+  if (next) {
+    next.addEventListener("click", () => {
+      const cardWidth = getCardWidth();
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      const maxIndex = Math.floor(maxScroll / cardWidth);
+      
+      currentIndex = Math.min(currentIndex + 1, maxIndex);
+      scrollToIndex(currentIndex);
+    });
+  }
+
+  if (prev) {
+    prev.addEventListener("click", () => {
+      currentIndex = Math.max(currentIndex - 1, 0);
+      scrollToIndex(currentIndex);
+    });
+  }
+
+  // ========== TOUCH/SWIPE SUPPORT FOR MOBILE ==========
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+  let isDragging = false;
+
+  track.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    isDragging = true;
+  }, { passive: true });
+
+  track.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    // Allow native scrolling
+  }, { passive: true });
+
+  track.addEventListener("touchend", (e) => {
+    if (!isDragging) return;
+    touchEndX = e.changedTouches[0].clientX;
+    touchEndY = e.changedTouches[0].clientY;
+    
+    const deltaX = touchStartX - touchEndX;
+    const deltaY = touchStartY - touchEndY;
+    
+    // Only handle swipe if horizontal movement is greater than vertical
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+      const cardWidth = getCardWidth();
+      
+      if (deltaX > 0) {
+        // Swipe left - go to next
+        const currentScroll = track.scrollLeft;
+        const newIndex = Math.ceil((currentScroll + cardWidth) / cardWidth);
+        scrollToIndex(newIndex);
+        currentIndex = newIndex;
+      } else {
+        // Swipe right - go to previous
+        const currentScroll = track.scrollLeft;
+        const newIndex = Math.max(0, Math.floor((currentScroll - cardWidth) / cardWidth));
+        scrollToIndex(newIndex);
+        currentIndex = newIndex;
+      }
+    }
+    
+    isDragging = false;
+  }, { passive: true });
+
+  // ========== MOUSE DRAG SUPPORT FOR DESKTOP ==========
+  let mouseDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+
+  track.addEventListener("mousedown", (e) => {
+    mouseDown = true;
+    track.style.cursor = "grabbing";
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+    e.preventDefault();
   });
 
-  prev.addEventListener("click", () => {
-    index--;
-    track.scrollTo({ left: index * cardWidth, behavior: "smooth" });
+  track.addEventListener("mouseleave", () => {
+    mouseDown = false;
+    track.style.cursor = "grab";
+  });
 
-    prev.disabled = index === 0;
-    next.disabled = index >= 3;
+  track.addEventListener("mouseup", () => {
+    mouseDown = false;
+    track.style.cursor = "grab";
+  });
+
+  track.addEventListener("mousemove", (e) => {
+    if (!mouseDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed multiplier
+    track.scrollLeft = scrollLeft - walk;
+  });
+
+  // Set initial cursor style
+  track.style.cursor = "grab";
+  track.style.userSelect = "none";
+
+  // Update arrows on scroll
+  track.addEventListener("scroll", () => {
+    updateArrows();
+    // Update current index based on scroll position
+    const cardWidth = getCardWidth();
+    currentIndex = Math.round(track.scrollLeft / cardWidth);
+  }, { passive: true });
+
+  // Initial arrow state
+  updateArrows();
+
+  // Update on window resize
+  window.addEventListener("resize", () => {
+    updateArrows();
   });
 })();
 
@@ -294,7 +436,7 @@ revealOnScroll(".rise-team", 150);
 ============================================================ */
 
 /* ============================================================
-   EVENT PHOTO SLIDERS
+   EVENT PHOTO SLIDERS WITH TOUCH/SWIPE AND MOUSE DRAG
 ============================================================ */
 
 document.querySelectorAll(".event-slider").forEach(slider => {
@@ -303,33 +445,158 @@ document.querySelectorAll(".event-slider").forEach(slider => {
   const prev = slider.querySelector(".event-arrow.left");
   const next = slider.querySelector(".event-arrow.right");
 
-  if (!track || !prev || !next) return;
+  if (!track) return;
 
-  let index = 0;
-  const gap = 18;
-  const cardWidth = track.querySelector("img").offsetWidth + gap;
-  const maxIndex = track.children.length - 4;
-
-  const update = () => {
-    prev.disabled = index <= 0;
-    next.disabled = index >= maxIndex;
+  // Calculate image width dynamically
+  const getImageWidth = () => {
+    const firstImg = track.querySelector("img");
+    if (!firstImg) return 200; // fallback
+    const imgStyle = window.getComputedStyle(firstImg);
+    const imgWidth = firstImg.offsetWidth;
+    const gap = parseInt(imgStyle.marginRight) || 16;
+    return imgWidth + gap;
   };
 
-  next.addEventListener("click", () => {
-    if (index < maxIndex) {
-      index++;
-      track.scrollTo({ left: index * cardWidth, behavior: "smooth" });
-      update();
+  // Update arrow states
+  const updateArrows = () => {
+    if (!prev || !next) return;
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    const currentScroll = track.scrollLeft;
+    
+    prev.disabled = currentScroll <= 0;
+    next.disabled = currentScroll >= maxScroll - 5; // 5px tolerance
+  };
+
+  // Scroll to specific index
+  const scrollToIndex = (targetIndex, smooth = true) => {
+    const imageWidth = getImageWidth();
+    const maxScroll = track.scrollWidth - track.clientWidth;
+    const maxIndex = Math.floor(maxScroll / imageWidth);
+    
+    const index = Math.max(0, Math.min(targetIndex, maxIndex));
+    track.scrollTo({ 
+      left: index * imageWidth, 
+      behavior: smooth ? "smooth" : "auto" 
+    });
+  };
+
+  // Arrow button handlers
+  let currentIndex = 0;
+  
+  if (next) {
+    next.addEventListener("click", () => {
+      const imageWidth = getImageWidth();
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      const maxIndex = Math.floor(maxScroll / imageWidth);
+      
+      currentIndex = Math.min(currentIndex + 1, maxIndex);
+      scrollToIndex(currentIndex);
+    });
+  }
+
+  if (prev) {
+    prev.addEventListener("click", () => {
+      currentIndex = Math.max(currentIndex - 1, 0);
+      scrollToIndex(currentIndex);
+    });
+  }
+
+  // ========== TOUCH/SWIPE SUPPORT FOR MOBILE ==========
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let touchEndX = 0;
+  let touchEndY = 0;
+  let isDragging = false;
+
+  track.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    isDragging = true;
+  }, { passive: true });
+
+  track.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    // Allow native scrolling
+  }, { passive: true });
+
+  track.addEventListener("touchend", (e) => {
+    if (!isDragging) return;
+    touchEndX = e.changedTouches[0].clientX;
+    touchEndY = e.changedTouches[0].clientY;
+    
+    const deltaX = touchStartX - touchEndX;
+    const deltaY = touchStartY - touchEndY;
+    
+    // Only handle swipe if horizontal movement is greater than vertical
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+      const imageWidth = getImageWidth();
+      
+      if (deltaX > 0) {
+        // Swipe left - go to next
+        const currentScroll = track.scrollLeft;
+        const newIndex = Math.ceil((currentScroll + imageWidth) / imageWidth);
+        scrollToIndex(newIndex);
+        currentIndex = newIndex;
+      } else {
+        // Swipe right - go to previous
+        const currentScroll = track.scrollLeft;
+        const newIndex = Math.max(0, Math.floor((currentScroll - imageWidth) / imageWidth));
+        scrollToIndex(newIndex);
+        currentIndex = newIndex;
+      }
     }
+    
+    isDragging = false;
+  }, { passive: true });
+
+  // ========== MOUSE DRAG SUPPORT FOR DESKTOP ==========
+  let mouseDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
+
+  track.addEventListener("mousedown", (e) => {
+    mouseDown = true;
+    track.style.cursor = "grabbing";
+    startX = e.pageX - track.offsetLeft;
+    scrollLeft = track.scrollLeft;
+    e.preventDefault();
   });
 
-  prev.addEventListener("click", () => {
-    if (index > 0) {
-      index--;
-      track.scrollTo({ left: index * cardWidth, behavior: "smooth" });
-      update();
-    }
+  track.addEventListener("mouseleave", () => {
+    mouseDown = false;
+    track.style.cursor = "grab";
   });
 
-  update();
+  track.addEventListener("mouseup", () => {
+    mouseDown = false;
+    track.style.cursor = "grab";
+  });
+
+  track.addEventListener("mousemove", (e) => {
+    if (!mouseDown) return;
+    e.preventDefault();
+    const x = e.pageX - track.offsetLeft;
+    const walk = (x - startX) * 2; // Scroll speed multiplier
+    track.scrollLeft = scrollLeft - walk;
+  });
+
+  // Set initial cursor style
+  track.style.cursor = "grab";
+  track.style.userSelect = "none";
+
+  // Update arrows on scroll
+  track.addEventListener("scroll", () => {
+    updateArrows();
+    // Update current index based on scroll position
+    const imageWidth = getImageWidth();
+    currentIndex = Math.round(track.scrollLeft / imageWidth);
+  }, { passive: true });
+
+  // Initial arrow state
+  updateArrows();
+
+  // Update on window resize
+  window.addEventListener("resize", () => {
+    updateArrows();
+  });
 });
