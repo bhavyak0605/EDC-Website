@@ -5,9 +5,72 @@ const navToggle = document.getElementById("navToggle");
 const primaryNav = document.getElementById("primaryNav");
 
 if (navToggle && primaryNav) {
-  navToggle.addEventListener("click", () => {
+  // Create backdrop overlay
+  const backdrop = document.createElement("div");
+  backdrop.className = "nav-backdrop";
+  backdrop.style.cssText = "position:fixed;top:72px;left:0;right:0;bottom:0;background:rgba(0,0,0,0.5);z-index:199;opacity:0;visibility:hidden;transition:opacity 0.3s ease, visibility 0.3s ease;";
+  document.body.appendChild(backdrop);
+  
+  // Toggle nav on button click
+  navToggle.addEventListener("click", (e) => {
+    e.stopPropagation(); // Prevent event bubbling
     const isOpen = primaryNav.classList.toggle("open");
     navToggle.setAttribute("aria-expanded", String(isOpen));
+    // Show/hide backdrop
+    if (isOpen) {
+      backdrop.style.opacity = "1";
+      backdrop.style.visibility = "visible";
+    } else {
+      backdrop.style.opacity = "0";
+      backdrop.style.visibility = "hidden";
+    }
+    // Prevent body scroll when nav is open
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  });
+  
+  // Close nav when clicking backdrop
+  backdrop.addEventListener("click", () => {
+    primaryNav.classList.remove("open");
+    navToggle.setAttribute("aria-expanded", "false");
+    backdrop.style.opacity = "0";
+    backdrop.style.visibility = "hidden";
+    document.body.style.overflow = "";
+  });
+
+  // Close nav when clicking on a link
+  const navLinks = primaryNav.querySelectorAll("a");
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      primaryNav.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+      backdrop.style.opacity = "0";
+      backdrop.style.visibility = "hidden";
+      document.body.style.overflow = "";
+    });
+  });
+
+  // Close nav when clicking outside (backdrop handles this now, but keep for safety)
+  document.addEventListener("click", (e) => {
+    if (primaryNav.classList.contains("open")) {
+      if (!primaryNav.contains(e.target) && !navToggle.contains(e.target) && !backdrop.contains(e.target)) {
+        primaryNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+        backdrop.style.opacity = "0";
+        backdrop.style.visibility = "hidden";
+        document.body.style.overflow = "";
+      }
+    }
+  });
+
+  // Close nav on window resize if screen becomes larger
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 900) {
+      primaryNav.classList.remove("open");
+      navToggle.setAttribute("aria-expanded", "false");
+      backdrop.style.opacity = "0";
+      backdrop.style.visibility = "hidden";
+      document.body.style.overflow = "";
+    }
   });
 }
 
@@ -197,7 +260,162 @@ if (visionSection) {
 
 
 /* ============================================================
-   SPEAKER SLIDER WITH TOUCH/SWIPE AND MOUSE DRAG
+   MOUSE DRAG SCROLL FUNCTION (Reusable)
+============================================================ */
+function addMouseDragScroll(element) {
+  if (!element) return;
+  
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+  let velocity = 0;
+  let lastX = 0;
+  let lastTime = 0;
+  let rafId = null;
+
+  // Mouse down - start dragging
+  element.addEventListener("mousedown", (e) => {
+    // Don't start drag if clicking on a link or button
+    if (e.target.closest("a") || e.target.closest("button")) {
+      return;
+    }
+    
+    // Prevent image dragging (which interferes with scroll dragging)
+    if (e.target.tagName === "IMG") {
+      e.preventDefault();
+    }
+    
+    isDown = true;
+    element.style.cursor = "grabbing";
+    element.style.userSelect = "none";
+    
+    // Prevent text selection on all children
+    const children = element.querySelectorAll("*");
+    children.forEach(child => {
+      child.style.userSelect = "none";
+      child.style.pointerEvents = "none";
+    });
+    
+    // Use pageX directly for consistent calculation
+    startX = e.pageX;
+    scrollLeft = element.scrollLeft;
+    lastX = e.pageX;
+    lastTime = Date.now();
+    velocity = 0;
+    
+    // Cancel any ongoing momentum scroll
+    if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  });
+
+  // Mouse leave - stop dragging
+  element.addEventListener("mouseleave", () => {
+    if (isDown) {
+      isDown = false;
+      element.style.cursor = "grab";
+      element.style.userSelect = "";
+      
+      // Restore pointer events on children
+      const children = element.querySelectorAll("*");
+      children.forEach(child => {
+        child.style.userSelect = "";
+        child.style.pointerEvents = "";
+      });
+      
+      // Apply momentum scrolling
+      applyMomentum();
+    }
+  });
+
+  // Mouse up - stop dragging
+  element.addEventListener("mouseup", () => {
+    if (isDown) {
+      isDown = false;
+      element.style.cursor = "grab";
+      element.style.userSelect = "";
+      
+      // Restore pointer events on children
+      const children = element.querySelectorAll("*");
+      children.forEach(child => {
+        child.style.userSelect = "";
+        child.style.pointerEvents = "";
+      });
+      
+      // Apply momentum scrolling
+      applyMomentum();
+    }
+  });
+
+  // Apply momentum scrolling
+  function applyMomentum() {
+    if (Math.abs(velocity) < 0.1) return;
+    
+    const friction = 0.95;
+    const minVelocity = 0.1;
+    
+    function animate() {
+      if (Math.abs(velocity) < minVelocity) return;
+      
+      element.scrollLeft -= velocity;
+      velocity *= friction;
+      
+      rafId = requestAnimationFrame(animate);
+    }
+    
+    animate();
+  }
+
+  // Mouse move - drag scrolling
+  element.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Use pageX directly for more accurate tracking (works better with images)
+    const x = e.pageX;
+    const walk = (x - startX) * 1.2; // Scroll speed multiplier
+    element.scrollLeft = scrollLeft - walk;
+    
+    // Calculate velocity for momentum
+    const currentTime = Date.now();
+    const timeDelta = currentTime - lastTime;
+    if (timeDelta > 0) {
+      const xDelta = e.pageX - lastX;
+      velocity = (xDelta / timeDelta) * 8; // Scale velocity
+    }
+    lastX = e.pageX;
+    lastTime = currentTime;
+  });
+  
+  // Global mouse up handler (in case mouse leaves element while dragging)
+  const handleGlobalMouseUp = () => {
+    if (isDown) {
+      isDown = false;
+      element.style.cursor = "grab";
+      element.style.userSelect = "";
+      
+      // Restore pointer events on children
+      const children = element.querySelectorAll("*");
+      children.forEach(child => {
+        child.style.userSelect = "";
+        child.style.pointerEvents = "";
+      });
+      
+      // Apply momentum scrolling
+      applyMomentum();
+    }
+  };
+  
+  // Add global mouse up listener when dragging starts
+  element.addEventListener("mousedown", () => {
+    document.addEventListener("mouseup", handleGlobalMouseUp, { once: true });
+  });
+}
+
+/* ============================================================
+   SPEAKER SLIDER WITH SCROLL SUPPORT + MOUSE DRAG
 ============================================================ */
 (function () {
   const track = document.querySelector(".speakers-track");
@@ -206,157 +424,56 @@ if (visionSection) {
   const prev = document.getElementById("speakerPrev");
   const next = document.getElementById("speakerNext");
 
+  // Add mouse drag scrolling
+  addMouseDragScroll(track);
+
   // Calculate card width dynamically
   const getCardWidth = () => {
     const firstCard = track.querySelector(".speaker-card");
-    if (!firstCard) return 216; // fallback
-    const cardStyle = window.getComputedStyle(firstCard);
-    const cardWidth = firstCard.offsetWidth;
-    const gap = parseInt(cardStyle.marginRight) || 16;
-    return cardWidth + gap;
+    if (!firstCard) return 214; // fallback: 198px card + 16px gap
+    return firstCard.offsetWidth + 16; // card width + gap
   };
 
-  // Update arrow states
+  // Update arrow states based on scroll position
   const updateArrows = () => {
+    if (!prev || !next) return;
+    
     const cardWidth = getCardWidth();
     const maxScroll = track.scrollWidth - track.clientWidth;
     const currentScroll = track.scrollLeft;
     
-    // Calculate approximate index
-    const index = Math.round(currentScroll / cardWidth);
-    const maxIndex = Math.floor(maxScroll / cardWidth);
-    
-    if (prev) {
-      prev.disabled = currentScroll <= 0;
-    }
-    if (next) {
-      next.disabled = currentScroll >= maxScroll - 5; // 5px tolerance
-    }
+    // Enable/disable arrows based on scroll position
+    prev.disabled = currentScroll <= 5; // 5px tolerance
+    next.disabled = currentScroll >= maxScroll - 5; // 5px tolerance
   };
 
-  // Scroll to specific index
-  const scrollToIndex = (targetIndex, smooth = true) => {
+  // Scroll to next/previous card
+  const scrollToNext = () => {
     const cardWidth = getCardWidth();
-    const maxScroll = track.scrollWidth - track.clientWidth;
-    const maxIndex = Math.floor(maxScroll / cardWidth);
-    
-    const index = Math.max(0, Math.min(targetIndex, maxIndex));
-    track.scrollTo({ 
-      left: index * cardWidth, 
-      behavior: smooth ? "smooth" : "auto" 
-    });
+    const currentScroll = track.scrollLeft;
+    const nextScroll = currentScroll + cardWidth;
+    track.scrollTo({ left: nextScroll, behavior: "smooth" });
+  };
+
+  const scrollToPrev = () => {
+    const cardWidth = getCardWidth();
+    const currentScroll = track.scrollLeft;
+    const prevScroll = Math.max(0, currentScroll - cardWidth);
+    track.scrollTo({ left: prevScroll, behavior: "smooth" });
   };
 
   // Arrow button handlers
-  let currentIndex = 0;
-  
   if (next) {
-    next.addEventListener("click", () => {
-      const cardWidth = getCardWidth();
-      const maxScroll = track.scrollWidth - track.clientWidth;
-      const maxIndex = Math.floor(maxScroll / cardWidth);
-      
-      currentIndex = Math.min(currentIndex + 1, maxIndex);
-      scrollToIndex(currentIndex);
-    });
+    next.addEventListener("click", scrollToNext);
   }
 
   if (prev) {
-    prev.addEventListener("click", () => {
-      currentIndex = Math.max(currentIndex - 1, 0);
-      scrollToIndex(currentIndex);
-    });
+    prev.addEventListener("click", scrollToPrev);
   }
 
-  // ========== TOUCH/SWIPE SUPPORT FOR MOBILE ==========
-  let touchStartX = 0;
-  let touchStartY = 0;
-  let touchEndX = 0;
-  let touchEndY = 0;
-  let isDragging = false;
-
-  track.addEventListener("touchstart", (e) => {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-    isDragging = true;
-  }, { passive: true });
-
-  track.addEventListener("touchmove", (e) => {
-    if (!isDragging) return;
-    // Allow native scrolling
-  }, { passive: true });
-
-  track.addEventListener("touchend", (e) => {
-    if (!isDragging) return;
-    touchEndX = e.changedTouches[0].clientX;
-    touchEndY = e.changedTouches[0].clientY;
-    
-    const deltaX = touchStartX - touchEndX;
-    const deltaY = touchStartY - touchEndY;
-    
-    // Only handle swipe if horizontal movement is greater than vertical
-    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
-      const cardWidth = getCardWidth();
-      
-      if (deltaX > 0) {
-        // Swipe left - go to next
-        const currentScroll = track.scrollLeft;
-        const newIndex = Math.ceil((currentScroll + cardWidth) / cardWidth);
-        scrollToIndex(newIndex);
-        currentIndex = newIndex;
-      } else {
-        // Swipe right - go to previous
-        const currentScroll = track.scrollLeft;
-        const newIndex = Math.max(0, Math.floor((currentScroll - cardWidth) / cardWidth));
-        scrollToIndex(newIndex);
-        currentIndex = newIndex;
-      }
-    }
-    
-    isDragging = false;
-  }, { passive: true });
-
-  // ========== MOUSE DRAG SUPPORT FOR DESKTOP ==========
-  let mouseDown = false;
-  let startX = 0;
-  let scrollLeft = 0;
-
-  track.addEventListener("mousedown", (e) => {
-    mouseDown = true;
-    track.style.cursor = "grabbing";
-    startX = e.pageX - track.offsetLeft;
-    scrollLeft = track.scrollLeft;
-    e.preventDefault();
-  });
-
-  track.addEventListener("mouseleave", () => {
-    mouseDown = false;
-    track.style.cursor = "grab";
-  });
-
-  track.addEventListener("mouseup", () => {
-    mouseDown = false;
-    track.style.cursor = "grab";
-  });
-
-  track.addEventListener("mousemove", (e) => {
-    if (!mouseDown) return;
-    e.preventDefault();
-    const x = e.pageX - track.offsetLeft;
-    const walk = (x - startX) * 2; // Scroll speed multiplier
-    track.scrollLeft = scrollLeft - walk;
-  });
-
-  // Set initial cursor style
-  track.style.cursor = "grab";
-  track.style.userSelect = "none";
-
-  // Update arrows on scroll
+  // Update arrows on scroll (for both manual scrolling and button clicks)
   track.addEventListener("scroll", () => {
     updateArrows();
-    // Update current index based on scroll position
-    const cardWidth = getCardWidth();
-    currentIndex = Math.round(track.scrollLeft / cardWidth);
   }, { passive: true });
 
   // Initial arrow state
@@ -365,7 +482,7 @@ if (visionSection) {
   // Update on window resize
   window.addEventListener("resize", () => {
     updateArrows();
-  });
+  }, { passive: true });
 })();
 
 
@@ -431,12 +548,20 @@ pastReadMoreButtons.forEach((btn) => {
 ============================================================ */
 
 revealOnScroll(".rise-team", 150);
+
+document.querySelectorAll(".member").forEach(card => {
+  const img = card.querySelector("img");
+  if (img) {
+    card.style.setProperty("--bg-image", `url(${img.src})`);
+  }
+});
+
 /* ============================================================
    EVENT IMAGE SLIDER Gallery page
 ============================================================ */
 
 /* ============================================================
-   EVENT PHOTO SLIDERS WITH TOUCH/SWIPE AND MOUSE DRAG
+   EVENT PHOTO SLIDERS WITH MOUSE DRAG (Continuous Scroll like Speakers)
 ============================================================ */
 
 document.querySelectorAll(".event-slider").forEach(slider => {
@@ -447,149 +572,56 @@ document.querySelectorAll(".event-slider").forEach(slider => {
 
   if (!track) return;
 
-  // Calculate image width dynamically
+  // Add mouse drag scrolling to gallery tracks
+  addMouseDragScroll(track);
+
+  // Calculate image width dynamically (including gap)
   const getImageWidth = () => {
     const firstImg = track.querySelector("img");
-    if (!firstImg) return 200; // fallback
-    const imgStyle = window.getComputedStyle(firstImg);
-    const imgWidth = firstImg.offsetWidth;
-    const gap = parseInt(imgStyle.marginRight) || 16;
-    return imgWidth + gap;
+    if (!firstImg) return 250; // fallback
+    const gap = 10; // gap from CSS
+    return firstImg.offsetWidth + gap;
   };
 
-  // Update arrow states
+  // Update arrow states based on scroll position (like speaker section)
   const updateArrows = () => {
     if (!prev || !next) return;
+    
     const maxScroll = track.scrollWidth - track.clientWidth;
     const currentScroll = track.scrollLeft;
     
-    prev.disabled = currentScroll <= 0;
+    // Enable/disable arrows based on scroll position
+    prev.disabled = currentScroll <= 5; // 5px tolerance
     next.disabled = currentScroll >= maxScroll - 5; // 5px tolerance
   };
 
-  // Scroll to specific index
-  const scrollToIndex = (targetIndex, smooth = true) => {
+  // Scroll to next/previous (continuous scroll like speaker section)
+  const scrollToNext = () => {
     const imageWidth = getImageWidth();
-    const maxScroll = track.scrollWidth - track.clientWidth;
-    const maxIndex = Math.floor(maxScroll / imageWidth);
-    
-    const index = Math.max(0, Math.min(targetIndex, maxIndex));
-    track.scrollTo({ 
-      left: index * imageWidth, 
-      behavior: smooth ? "smooth" : "auto" 
-    });
+    const currentScroll = track.scrollLeft;
+    const nextScroll = currentScroll + imageWidth;
+    track.scrollTo({ left: nextScroll, behavior: "smooth" });
+  };
+
+  const scrollToPrev = () => {
+    const imageWidth = getImageWidth();
+    const currentScroll = track.scrollLeft;
+    const prevScroll = Math.max(0, currentScroll - imageWidth);
+    track.scrollTo({ left: prevScroll, behavior: "smooth" });
   };
 
   // Arrow button handlers
-  let currentIndex = 0;
-  
   if (next) {
-    next.addEventListener("click", () => {
-      const imageWidth = getImageWidth();
-      const maxScroll = track.scrollWidth - track.clientWidth;
-      const maxIndex = Math.floor(maxScroll / imageWidth);
-      
-      currentIndex = Math.min(currentIndex + 1, maxIndex);
-      scrollToIndex(currentIndex);
-    });
+    next.addEventListener("click", scrollToNext);
   }
 
   if (prev) {
-    prev.addEventListener("click", () => {
-      currentIndex = Math.max(currentIndex - 1, 0);
-      scrollToIndex(currentIndex);
-    });
+    prev.addEventListener("click", scrollToPrev);
   }
 
-  // ========== TOUCH/SWIPE SUPPORT FOR MOBILE ==========
-  let touchStartX = 0;
-  let touchStartY = 0;
-  let touchEndX = 0;
-  let touchEndY = 0;
-  let isDragging = false;
-
-  track.addEventListener("touchstart", (e) => {
-    touchStartX = e.touches[0].clientX;
-    touchStartY = e.touches[0].clientY;
-    isDragging = true;
-  }, { passive: true });
-
-  track.addEventListener("touchmove", (e) => {
-    if (!isDragging) return;
-    // Allow native scrolling
-  }, { passive: true });
-
-  track.addEventListener("touchend", (e) => {
-    if (!isDragging) return;
-    touchEndX = e.changedTouches[0].clientX;
-    touchEndY = e.changedTouches[0].clientY;
-    
-    const deltaX = touchStartX - touchEndX;
-    const deltaY = touchStartY - touchEndY;
-    
-    // Only handle swipe if horizontal movement is greater than vertical
-    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
-      const imageWidth = getImageWidth();
-      
-      if (deltaX > 0) {
-        // Swipe left - go to next
-        const currentScroll = track.scrollLeft;
-        const newIndex = Math.ceil((currentScroll + imageWidth) / imageWidth);
-        scrollToIndex(newIndex);
-        currentIndex = newIndex;
-      } else {
-        // Swipe right - go to previous
-        const currentScroll = track.scrollLeft;
-        const newIndex = Math.max(0, Math.floor((currentScroll - imageWidth) / imageWidth));
-        scrollToIndex(newIndex);
-        currentIndex = newIndex;
-      }
-    }
-    
-    isDragging = false;
-  }, { passive: true });
-
-  // ========== MOUSE DRAG SUPPORT FOR DESKTOP ==========
-  let mouseDown = false;
-  let startX = 0;
-  let scrollLeft = 0;
-
-  track.addEventListener("mousedown", (e) => {
-    mouseDown = true;
-    track.style.cursor = "grabbing";
-    startX = e.pageX - track.offsetLeft;
-    scrollLeft = track.scrollLeft;
-    e.preventDefault();
-  });
-
-  track.addEventListener("mouseleave", () => {
-    mouseDown = false;
-    track.style.cursor = "grab";
-  });
-
-  track.addEventListener("mouseup", () => {
-    mouseDown = false;
-    track.style.cursor = "grab";
-  });
-
-  track.addEventListener("mousemove", (e) => {
-    if (!mouseDown) return;
-    e.preventDefault();
-    const x = e.pageX - track.offsetLeft;
-    const walk = (x - startX) * 2; // Scroll speed multiplier
-    track.scrollLeft = scrollLeft - walk;
-  });
-
-  // Set initial cursor style
-  track.style.cursor = "grab";
-  track.style.userSelect = "none";
-
-  // Update arrows on scroll
+  // Update arrows on scroll (for both manual scrolling, mouse drag, and button clicks)
   track.addEventListener("scroll", () => {
     updateArrows();
-    // Update current index based on scroll position
-    const imageWidth = getImageWidth();
-    currentIndex = Math.round(track.scrollLeft / imageWidth);
   }, { passive: true });
 
   // Initial arrow state
@@ -598,5 +630,5 @@ document.querySelectorAll(".event-slider").forEach(slider => {
   // Update on window resize
   window.addEventListener("resize", () => {
     updateArrows();
-  });
+  }, { passive: true });
 });
