@@ -16,15 +16,51 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="style.css">
+
+<script>
+  if (!sessionStorage.getItem("loaderShown")) {
+    document.documentElement.classList.add("show-loader");
+  }
+</script>
 </head>
+<body>
+  <!-- LOADER -->
+ <div id="loader">
+  <div class="orbit-container">
+    
+    <!-- Center Icon -->
+    <div class="center-icon">
+ <img src="img/home/loader/logo.png" alt="">
+    </div>
 
-<body id="top">
+    <!-- Rotating Icons -->
+   <div class="orbit">
+  <div class="icon">
+   <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADJ0lEQVR4nO2Zu2tUQRjFJ1lNiDEIwqpYqAExKAoSwcJ3pxZaqKCNRfTf8BEfIdooSiQ2ghZiFexSRDQmIfGZxlfEQnxEEAXBaOGj+MmYc+O47iZ3d2cuN7IHbrFz555zvjvzzf1m1pgK4gHoAx6Y6Q4EM91BJZCU4X8KZADoN2kA0ArcALIJamaBHuCkT9JuzZBHSQTDeBBWy6I7FPGkwQDNwDGgFxgBvuoaUZu91+xDqyTkCAwDVc69KmAP8Jz4sH135+EZDj76CmZYb7dabY3AHcfga+A8sBVoAup1NanN3nvj9B8EloirWgE+TCQfo7cIbAI+ypA11wJkYjyfAQ4Ab/XsB8tlHO7EoCC+y0iXfeslcMwGrovDcv0OJjFoOkUjcaact6jpdNYZmUa/bgsLVzk50RXlSpmc1c7IDCYyvbQ6RTlR75HXTrNRce/yxTvZaERLbEsA/oPifuabO9/HLlpiMwH4M85Ktto3vyt0XCLnAmp0SKPVBBSxJYbFtoAa26Vx0wQUeSGRpQE1mqISppxV41WemmjA6TOmtgaf5nN8NEhjLK6vuIFMbIqAb2qrCRhIrTS+xfVVioj98lrM82k+R2OBNN6bgCLRF31DQI2N0hg0AUUuSORIQI3D0ugwAUV2SuRpQI3H0thhAidilCdrA/CvEbetrGt98+eKHYqWP99VKn8+uEd98hYSq1OtZbHfI+8+cdpaa5Yv3ril/BdghQe+ZcBnce714zK+eKeEbVk/twyeOcATcV3y6zJ+4t+Vgb5SktNWCMAtcdjTmbowbvMfB9mPYo9+zwdeysi1YpJfm7SretaWIAvVPgTcD32mFR3QDTnty4FPxe4hdJ6Mnp3IM+BeUqeM/wgAm4GfwA9gZQy+Vepvry3FaJUF4PZUxMBp9emMwXdRfU8VuJ91guktz/3fxFfsjm2Kw+vFFI9Fk/BlpXnZJI1iozBpBTENVgJJAs4WNSooa6b6v8SkEcBMx2O/AhmZdoFYAO/kcZ0pAGC9+oyatAJoJz7aTFrB+HRqd0YmH+yJe1vIIyWvAGbY/8i1UbLXCdvmV6UCk1r8ApzfmEwmy+a+AAAAAElFTkSuQmCC" alt="light-on--v1">
+  </div>
+  <div class="icon">
+<img src="data:image/png;base64,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" alt="external-Budget-black-glyph-icon-business.-glyth.-silhouettes-glyph-silhouettes-icons-papa-vector"></div>
+  <div class="icon">
+ <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADaklEQVR4nO2aXWiPURzHHxlGeRuxCU0TLXe4MLtZyoV2RV5ujBKhMFfcMZZtyoVC8nKhuZALm0IjV162SW6UtwkJ25AtioWZj378njp7PM929vz/5/9S+9apf53Tcz7f85y33+/5e96whhUqIBcoBXYDJ4Am4BHQDnR5mSggD9gC3AR+0l9vgGagD3jnZZKAOcBxoMcA7gWuAjuAMuCkYeqhlwkCxgGHA6PdBewDCoCRwE7gS+BtXMsEeBnV1wbUD+AQMEHr5wP3CdexdIKPAPboFPElc3ue0WYz8JVo7UoX/GjgogHSB1QDOVo/BjjH4FqSrvkuW6EvGeGVRv1U4JYF/Hcxmmr4iTpNfH0AFgXajAfWBdZFmJrSAX/PAJCDqNiYUnVApxb5nQ+0DWBgUzrh5TAqMurrQgBrgTUR8N+AyamEb42C1zadIZDvgekRBo66gp0ErNLTssJi5JcDU4COEMgOPcSCknNidrKAc/SidQBoAX5pJ1WW8D26YGtDQGsiplB1otCjgO3A5ZCjfajwfl2+ArdrqdHp8zzw7BfA2EThG0Og48L7atPRnqFlbQi83JNKE4VvGAB+fwj8Wwt4W1W6hI878raqT8fIz00S/BVhSMRAEfBxCCOfzGlzO6FFa0AUhxw2rke+2Y8JnEgenrXwIrmLGGsju+BFwF29BoiJbmBxEuBbUgKvoKiJPDXxSUK8rIAXGR2vtzihreCBCi9VAp5q53+Pd92RGhOAr5JbbCoNTNMU3wNghS4+f03EgceMjVNlokDfhJ+QuqNrojEGfK/EE66ByzWjILvOhYAJhmAiCC9qdgkuqb0z9FeJUR804W+xEjPYwIuqXBo4Qn/J684NtIkyIamTweBFS13BL+N/PYloKyaeGe3MtGDrAPCf/aycCwMypyPv55oGLJFUYISJweBFDS7z9b9DOjwoJoDHxg7UbfG8KG1zZWAr9roe04DsVvEDlkE6lFG2VXkMAw3O4EXAK0v4s56FApGdc/iZlvCnbHcQI7K75BRepLfMKP3WeLXMixdju4UXBT5CoPn6el3YhV4mi3+vWrbHG8AGYJaXTQIqgQXp5hhW1gkoBDYCe+UjMnBe/68gRe4zL40iXwmDksDebGMWidj8Z/lF1thp3YrljxzSrxSZwquBhbZBzh/W4zhrMvKU3gAAAABJRU5ErkJggg==" alt="rocket"></div>
+  <div class="icon">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAACeElEQVR4nO2Zv2tUQRDH36EGFEQEmxRCNARBC40KNoZDsbARg4ogloKFjVUam6iF8Uf+jYCx8D/wBxiUgAiC5E4bBRPBH4UkNqb5yHDjsbxcvNm93XcY9gPbPG7m7Xff7M7MXlFkMpnMhgEYAO4BX0hEkVjA3VQTr0pAspVXFlMLSM3U/ypgScNzIKmATCYSwCbgAvAi1iYo+gVwBvjYdwFADTgC3AaeAU3gl46GPrsFHO5gux143MP8l3qd+EXgvccLmxpCtZKfO5We/8AwME84r4A9JZ/3Kzn/gePAV3rnB3CyqBLgBLBKPH4D9aomP6yr1g3ZF6d0LBp+/70cTtHRjWaN+UHH7oPR5mVpY8/jSTcBsqoWVoCdjt1uYL/R9rxjdymaAF19y1H5EzjQwX6rcQ4Nx2YL8C1KPtAkZWFiHXurAGHUsXsYJR9ohrXQXn3gBvBaxxuPidx0fFyNkg+0FLDQPkmAWcJ4UsQGe6lwuWQ3Drz1FNBMIWDZ+PLPwK6S7WZg2kPAcj8FCJ+A0x18zPoKALYRQCcBPtXmX54DBx0fx3xDiFYOiSLgaYgjaVYCVrO9iYGjAe9cmw+0GbHwzjk6ZTxwfAwafUw6NtcCBKzNB9JJGY33/WMfXTH6OOTYzHhMfP18oKVEM1QAMGK8WlwoUkGrDeyGlM975ebBsbtuLMGFcykF1LQNTFVOz7nldBKkVNDmI3ZDI1XnkPOes3jiI6KubWAsxNeY43+HJkMvfL9E3fglLCs/VgrTR5XcDdEKJ2kDQ5lzw0Z9Vn43VJM2UG/frCyUTxv1M9XX/waAUWlGpBRQQSs6Gvps0k1SmUymSM4fTFiUj0NtyAAAAAAASUVORK5CYII=" alt="coins"></div>
+  <div class="icon">
+ <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACa0lEQVR4nO2ZsXITMRCGlQTXKWM3TmVMRZyhC21egRLT0ZD3IC9BGkLhIjQOaVPmAdKEuKC2GSiSs2kgH6PxZkYxd5JPd7roBv8zGmvksbS/tKtfu1Zqhf8EwC5wBtwCN8AXoKfqBOAZMOVf6LGuqguAz2L4ANiSpvsaJ6ouACZidNMYa8nYWNUBwBPDrVq1I8KcQB+4NmJCu1NTWtyuRTqBEZCkBHsSXbCTTkD338h3PeBUrl7dhsCOigXAOvAKuDIIfAPeagIqdiEDNmwnULU9qoCQjaokoCEbmOQWVoeQVUbgHhJXWfac+ArZtOoYwFdYjR+mCdnPCmx/AL2mxZ7xsq61KGR3wEegrQIDaMtadxZ7rK7VtQTXL+nrz/fAZgACmzK3udbUS1gzhOy57NKxsUvaDd8BjRIINGSuiXH6n4DtYMIKvADOjd35qgWywHz7wKUx3wXwsrChBQ3YK7ohwFpYy5d3iWNxw56o8K003d9JcdHvwEEZLlpWkB4aQTqzXBozI5APQ1waZV6bvy2K/EdOZFvFDuCHRZErF1ZvOF4Icae6OV4Icaa6lheCFq9F3ESX6roAdIAPxjWr+x1VVyBQdQePRYSSi89FieCZs/vlyIGIUCBn98uRwxEZetkTovhckMjEyx6HInsVH3yJMK+j+RXDHYrsVQ7KS4Q5gdeSn1B2zp74VhiXJZJBYORdDM/KkTMWchJyEbHM2w9aDM9bxM4iEk0xHMcJAU+BI+O7IxmznoB6LFh8O+v1ex0VgRy3TUvaIIXAhooVPLz/s4rh8RIwsUp1Y4NDWGuX6vai/ld3BRUWfwGqUsw0N+bN4AAAAABJRU5ErkJggg==" alt="decentralized-network"> </div>
+  <div class="icon">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACFUlEQVR4nO2YPy8EQRiHJ3LRkaguFyqdU2kp8AV0GgqdmkRNTaHhIxAfQUlDjYIgcomIhCBUOo9MvOK1d8ve2tmbkXmSSSaz77zz++3c/NkzJhKJRCL/CaACzAEXwJnUKyYUgC5gGjinmQYw77UhvmbgUgm/lLa09orvM9BIvvmscaWTV5g3hihISMcM4Wjg0gxR0kDOxqFDU09R4/qyGMmrwxcDuXX5aiDJrzqBw3ZPXKAKTAFLwDqwBewDp8AVcAs8AS8q94u03UrMqfTZkhw2l81ZzXGDOLAPDrIYAfqBDXkLrmnIWP3tGPnpjqSvGCfq+SOwC6wBC8AMMAEMAYMyY31Aj+rfI21ViRmSPjOSw+baldyfHP9ioPnFq0BaBaq2unEMUFfjZTPQIokObqq7NpFBR7Zbs+rU8rvClATfyXUgfhOc/Mm5Ep6mg7zfLWmCdTtQS2y/23/YfrcT22/tJx2FGQGucc91GUYsDy223/GCtt8HPZALI8cpRhaBWRFVF5E1Ed2r+vdKW01ibOyk9F1MMXLkwogXJ3tmskxpyl1rTy32G1nYz0rcs7TdqMW+1+5dq1AjQUA04hlEI57Ax51qVe0yqz596mZGDqQkayY0gHsRPwqMSf3eBGxkWIrlzoQGsCnid6RYNk1oAAPAK/AmxdYHTIgAK2qhL5tQAbrlbx9buk3IACO2dFpHJBIxhfIOW4l78xXfw20AAAAASUVORK5CYII=" alt="graduation-cap"></div>
+   <div class="icon">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD5klEQVR4nO1ZSWhUQRD9UeMSol4iGrdERSWgiLhdVdSrS8AF9OTuWcWLMSJ6Sk7idjAqoifFi1EPihj3haAHN4geRBDFlRCM6VcpKdIZynY68//8P5kJTMHA5/fr6ve6+1dX1wRB0YpWGMbM0wDsJKKLAFoBfAXQZX/y3EpEFwTDzFODQjBmHgxgPYB7ALqJiMP8BGv7rGPmQXkhb4xZBuB1WNJ9iHlpjFnab8SZeQQRnQpB7jQzT2TmSfIcAn+cmYfnmvwYAE+cGfxNRGcBkHp/wu1LRCdVH8Ges321r0fMXJFL8q+cWbtqZ7hRkXjNzKVp+pcCeKP6NjLzZCJqdrdU4iJk2+iZlxkEUCcfoCw7gO+9bcaYlT4/xphVysd36Ss+iKher6BdieS2k7vnAezobQOwQb1/y8wlfUxEiWAUfp3ys8tZ3WOJkDfGLHfIH3DEXVFt+zL5E4zyd9nxdVCPFTs62TifCpUA7ugZtu2p7cPMNSF81ih/3/Q5IM8AWpzvIftzwtkenS5BZp6n2j9G8PtBiZ7r+JyhoxOAtXEE3I97UCVw0LXEyW26C0BANzNXZzP7blTIp4jtkQVI5qgc1HlEtqq9vDCsb2ZepHy3enzXKRHnIwvQ5CSUejBtSsDMCAJmKgFt6TDGmBUK8ywbAV8VuSoP5ovCjI0gYJwi98WDqc6EySTgjyJX5sF0KsywCAKGKXKdHkxZJkwUAeUejFGYIREElCpyXR7MyLgC9Baa4cG0K8yoCAJGK3K/PJjpcbeQ/ogXezCflYDKCAImKHKf0mEkD4r1ETthdL9HwAslYH4EAQuU7+ee8evjhtHUQQbggWeQ62qVVof1bYypVeSaPeM/VONviyyAmaf0phLouW3kM5WoiiyggJK5u1mRtwLW51uAMaY2awES2+VSoferc6GRi/ov9SHPCuFztprdn7oAIL71JV+ChFyaggQKWKm0GsBe3S7XQiXwcCZ/RHRE4S/5rpvy2fnCd2TTg9qKxGY16CbV9i7Epf69wm9UfrY6taVDiZC3Aw8moluOiN1CSHIWAD+yKKv8kHKNFbXHIX8z9tZJI6ICwNM0ha1KImoIUdga6hS2Gph5fJrC1pNcVufKieiGM2CH1D6ds+JkX7Uli5U+Hc6EXPMljkmKkEzyaIj7cpOUHW35sClDrDd2Rf5buZyZMWaJ5DEJHFQPmXlOkA+TopMcNFLwcj7CTKQlCNw2xqzJ2x8c6VJkCYVEdAbAY33AybO8s21bBBsUutG/6XB9MNCMigISNEkl3L+DcvlDz1gZ86pQZo/61OW9H0W0B0mZzMaAXYGiFS3o0/4CNmoKD+KoPb8AAAAASUVORK5CYII=" alt="web-globe"></div>
+  </div>
+</div>
+ </div>
 
+
+<div id="main-content">
   <!-- ================= HEADER ================= -->
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#top" aria-label="E-Cell Home">
-        <img src="img/edc-logo-removebg-preview.png" alt="E-Cell logo" class="logo" width="150" height="130">
+        <img src="img/logo/edc-logo-removebg-preview.png" alt="E-Cell logo" class="logo" width="150" height="130">
       </a>
 
       <button class="nav-toggle"
@@ -53,29 +89,8 @@
 
   <main>
     <!-- ================ HERO ================= -->
-    <section class="hero-section">
-      <div class="hero-inner container">
-        <div class="hero-content">
-          <h1 class="hero-line">Ignite.</h1>
-          <h1 class="hero-line">Innovate.</h1>
-          <h1 class="hero-line">Impact.</h1>
+<section class="hero-section"></section>
 
-          <p class="hero-sub">
-            Empowering students to build, launch and lead
-            through hands-on programs and a vibrant community.
-          </p>
-
-          <div class="hero-buttons">
-         <a href="events.html" class="btn-explore">Explore Events</a>
-
-       
-         </div>
-        </div>
-
-        <!-- Decorative panel (replace with image later if you want) -->
-        <div class="hero-panel" aria-hidden="true"></div>
-      </div>
-    </section>
 <!-- ==================== ABOUT SECTION ==================== -->
 <section id="about" class="section about-section">
   <div class="container">
@@ -111,69 +126,87 @@
 
     
 
-    <div class="flagship-bg">
-       <div class="container"><h1 class="center">Venture Initiatives</h1>
-      <div class="flagship-stacks">
+    
+     <h1 class="flagship-heading">Venture Initiatives</h1>
+      <div class="flagship-bg"><div class="flagship-stacks">
 
     <!-- STACK 1 -->
     <div class="flagship-stack stack stack-left">
-      <div class="flag-card rise-card">
+      <a href="events.html#pitch-perfect" class="flag-link">
+  <div class="flag-card rise-card">
+
  <img 
-  src="img/edc-pic5.jpg" 
+  src="img/home/venture initiative/pitch perfect/1.jpeg" 
   class="flag-img"
-  data-images='["img/edc-pic5.jpg","img/bhartiyam-25.jpg","img/bhartiyam2-25.jpg","img/edc-pic2.jpg","img/edc-pic3.jpg"]'
+  data-images='["img/home/venture initiative/pitch perfect/1.jpeg","img/home/venture initiative/pitch perfect/2.jpeg","img/home/venture initiative/pitch perfect/3.jpeg","img/home/venture initiative/pitch perfect/4.jpeg","img/home/venture initiative/pitch perfect/5.jpeg"]'
   alt=""
 >
 
 
-        <h4>Pitching event </h4>
-        <p>Showcase your startup idea, get real feedback, and pitch in front of investors, mentors, and incubators.
-A platform where student innovators turn ideas into real opportunities.</p>
+        <h4>Pitch Perfect </h4>
+        <p>Pitch Perfect was a competitive platform where students
+presented their innovative business ideas to experienced
+ mentors, and investors. The event focused on
+idea validation, business modeling, and pitching
+excellence. Participants received expert feedback,
+mentorship, and a chance to transform
+ideas into viable ventures.</p>
       </div>
-
+ </a>
     </div>
 
     <!-- STACK 2 (Shifted Down) -->
     <div class="flagship-stack stack stack-middle">
-      <div class="flag-card rise-card">
+      <a href="events.html#women-session" class="flag-link">
+  <div class="flag-card rise-card">
       <img 
-  src="img/bhartiyam-25.jpg" 
+  src="img/home/venture initiative/speaker event/1.jpeg" 
   class="flag-img"
-  data-images='["img/bhartiyam-25.jpg","img/bhartiyam2-25.jpg","img/edc-pic5.jpg","img/edc-pic2.jpg","img/edc-pic3.jpg"]'
+  data-images='["img/home/venture initiative/speaker event/1.jpeg","img/home/venture initiative/speaker event/2.jpg","img/home/venture initiative/speaker event/3.jpg","img/home/venture initiative/speaker event/4.jpeg","img/home/venture initiative/speaker event/5.jpeg"]'
   alt=""
 >
 
-        <h4>SIPP </h4>
-        <p>Connect with high-growth startups and gain hands-on experience through impactful internships.
-SIPP bridges students with emerging startups for learning, growth, and career exploration.</p>
+        <h4>Speaker events</h4>
+        <p>A series of insightful sessions featuring renowned
+entrepreneurs, industry experts, and thought leaders who
+share their journeys, challenges, and key learnings. The
+event aims to inspire students and encourage them to pursue innovation, leadership, and
+entrepreneurial thinking.</p>
       </div>
 
-   
+    </a>
     </div>
 
     <!-- STACK 3 -->
     <div class="flagship-stack stack stack-right">
-      <div class="flag-card rise-card">
+      <a href="events.html#sipp" class="flag-link">
+  <div class="flag-card rise-card">
+
     <img 
-  src="img/bhartiyam2-25.jpg" 
+  src="img/home/venture initiative/sipp/1.jpeg" 
   class="flag-img"
-  data-images='["img/bhartiyam2-25.jpg","img/bhartiyam-25.jpg","img/edc-pic2.jpg","img/edc-pic5.jpg","img/edc-pic3.jpg"]'
+  data-images='["img/home/venture initiative/sipp/1.jpeg","img/home/venture initiative/sipp/2.jpeg","img/home/venture initiative/sipp/3.jpeg","img/home/venture initiative/sipp/4.jpeg","img/home/venture initiative/sipp/5.jpeg"]'
   alt=""
 >
 
-        <h4> E-Summit 
+        <h4> SIPP
 </h4>
-        <p>Our biggest annual celebration of entrepreneurship featuring talks, workshops, networking, and startup showcases.
-A grand platform that inspires, empowers, and connects future innovators.</p>
+        <p>SIPP was an exclusive internship matchmaking initiative that
+connects students with early-stage startups across diverse
+domains. The program enables students to gain real-world
+startup exposure, hands-on learning experience with founders. It bridges the gap between talent
+and opportunity, fostering practical entrepreneurial skills.</p>
       </div>
 
-    
+     </a>
 
 </div>
     </div>
 
   </div>
 </section>
+<br>
+<br>
 <section id="vision" class="section vision-section">
   <div class="container">
 
@@ -225,7 +258,7 @@ A grand platform that inspires, empowers, and connects future innovators.</p>
     <div class="container fuel-grid">
 
      <div class="fuel-item">
-  <i class="fas fa-bolt fuel-icon"></i>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFbElEQVR4nO1a62sdVRDfVC2oGLH+A4oRkz1nIxiIsd6ZtbbRaO/OrC23/aQoYkXUTwq1io2iJD5QpK2ioNBPvj9b0EbUpLU+aPWLJvFJqdXWWqso8YGNzNmTh7f37N292ZsE7A8Wkr3nzPzmnDkzc+ZezzuJRQSNtEsDf9jW3dead26lUjlFl+JQIT+pkfcopEMK+G/zIB0y74CfCIBQxuaV39bd16qAP9JAw2kGfKCRJxXQG2EYnppFcE9P5XQNdI8G/lEhjyqgR4ISr9Rhub2zt/dMeeTvIKRVGuhRhTSmkA4HyBtlbhYdwkUD70i48fvOgUYZ8nYZqJG31ROsMV6ngA/IrimkFV5GiIEK6WONtF8Br62vh7dZTtuFY10FOqSbFPLvPtDttUf0L1HIgxrpTxXGt3me1+LlR4uG6A6F9JcGflhk1hokHISLcMolvTO8Tivgm2uSB3pFI/2kQr6iAeJVBKMrFfJRjfxSLSOEg3CZq54ZgciDsmp5XKYeAmSQ3dTID3nNhPi8OUiJ2xQru8R3auTjCqM1XjNgog3SfjmwDfp8PbTIwZag0NVVPqNw6SZUyuoX6DrV0Bj12lB5t1ckJPFI7FbAn3tNhgYe18Dfu6JSY0JLcZisPg8WJtSlC+lxo6sUXV6YUCkBRKgkoMKEOnXFV9mk9VhhQqWOEaEduPrCwoS6dIXldmvASKYJCmi3JCWNPCSFWAB8YwDlS3y/snR6DNJhEXrRcjrLazLauvtajQHmHCQQLsJJuNlicchyHpHoMmwt/u8DPD4lwCaZSW9+0GL1T0zrB/6iFkeF/G4miRr5V5mQVmYrpK9MNYo8kFSe/LYxHPgPhbRT3kmlmlSjPOqS07WqcrYl+Et+293kxhKL4w7XGI38mkQQBbRFtl9qGEl+kpQCjDfIOw38lHEBoBfduuIOu7qjRRqwMwltcdk1xkeiLFtqLk3I1zp1leKy3YGhuXCuVrrZrspW15iurg2nyWHvhOh8J7kV8QUK+Ie0y5JC3poYQP1eUego0aXJwaJv0+oguXgopPuc5IAfEDdKUdWikL9ODIgv84pD/xIN9KVJZhhf4xoVhFFPiu+2SDQJSnGXa74Cvtpeab9p5N6cCo18ly203kwdBzzuQ9xdg9xyDfRZnbk7kkXijV7RCEqrz5HQVm97NfD9EolOfE/PKOR7XfN8iLvlPiAhu31lfK7XDCjgB+0Wv+cac3HI50kbRQ71NDm/slQOuHzmmqdNdjXRp3m3siTJmBQ+6YdRn5MM0LBCjqb/L3GskN7J4Ps/y04XQlbcRAG/6odxafZ78U8b5j5x1ewa+FaZOyOLXq/dIBD0LxFZSZSLNnlVHDTSyzkikrRLojU22QjJ56ubT5JZNdJBexbW1ZLi91SWSStkVvSZkN2rNVYBr7e6Dlb3fES3An7Bfr4ruS+nXHSk62UjzW8q5Otd46SfY/PCvtp5wazqP9MGIB9PifufGpd09qBMJXCDcLJutttpgKlMgfem1TxTh1Ijf+e+OWUzIDDtFLNgB2aX7zV1lsgXV0sLILkgfU67IlsaNUADPW1LlAFvvmESU1K3752DAfuaUDZkgxxUuwPHGjVAAR0z/t9TWeYtBKYInNgxrm+AXE914j5HvYWCdOnsIVyb14CpNqVG3uMtFPyQbql5n87xKGeCmxeY7wkGNNCR3OSBjiTRp8AO3P8W2tH2SHUdpDFvMUG6dlnJz0eHL39HOfcZmGmcLQr4YdR2cgcWEjMXnSwPbfYWI4JMRixS8tmMWCTktdxVIdqkgJ6TXo4Cfkt69dKhNj8fkC+ugSdm+ftE8mW2fCZjeETmyG8yFNKzIqvRkvpfCS0XO/ALY+IAAAAASUVORK5CYII=" alt="idea">
   <span class="count-num" data-target="150">0</span>
   <p>Startups </p>
 </div>
@@ -237,7 +270,7 @@ A grand platform that inspires, empowers, and connects future innovators.</p>
 </div>
 
 <div class="fuel-item">
-  <i class="fas fa-chalkboard fuel-icon"></i>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADDElEQVR4nO1ZO28TQRBeoKKj4aXwElJIcrOXS+mEmz1iGoTjGTtgiYoOKBFI0ICUlFRIwE8ICoIEkCLR0wQETfgHaXmFJCgPlCKgOUfIduzz2bHjNfiTTjrd2bPzze5+s59OqQ46sA/9fuYMIL/Shpe14Z9g6LU7RD2qXZLXhha04d+FFxj+AcjHle2AfOWLkv9LAvmFsh06v2zKEpB3yma4Q9QDhjYqzwAtKRvhBXwADD+MSn6LwHNlE3K53D7XZK6Doa9RiYcX0nc3yB5TtgACPqeR5rarDb3VSCmNNLlFbFkq35LkneDiEY18Qxu67fp8Xim1xwv4lDY8VWZ5zDs+Xd75qGN7nSB9AQzflbF7MXu0rjCAfAmQFosTpU8aeb1EGlfA0L1EIrd/p6kP+LmDgPy+ZEbXwKcr9ajJWpV1vQmGJrxkqks1CID0puzmN7wqDTJ+IMNPopOnD26QTqgGwssvzQgF40exg2mkmahgTpDxVTNEwUSq2Ez8YEiPo4PxR20yg41K3g3SCZnVxs2An+6v1pTye4Cf7mQPeMlUl+wjiRWZvOHVPpPqrim4SKKcIGOpENL9WlRIfivKBcgrJTO7Ho5RcorVhrL1FEjpZPqwE9A1x6dbYGhYnkX1ATegXKzCIM2XqfSUxJZe42A6KWPK2P2D2UOqGchvuuJqFXViw8808rfwCu8pFb7bvjnnJJZqDcb2gqGrgPy56llouxQvgKGbcp5SVpxGkR5o5F/VEhdxEEWR/yjboIOR3kgSyOvWe2OdX/OVqv9F2Q6NNBlBYELZjr7h0ZNlDY4YGn/0tGoHeGGvoNkCxZkVYi0zNIB0R0yGyGbc/wLyeEG3HrfC0ADSOzEdzSIwsCuGJuaxth4CsEuGZtM5O3Ki0QS83TQ02s8EjSYAthmaWgi4NhqaOAQ8mw1NFIG2MDRQgUBbGBrwMyOFei734bOOoWkS/ilDA1EfOAxtWG9oAGmpspbTorIdGvllxLqfVrajz6S6y31mlWc1N6MWk5je+mK5LPdtk3wH/xv+AKxe1vkfcDR4AAAAAElFTkSuQmCC" alt="decentralized-network">
   <span class="count-num" data-target="100">0</span>
   <p>Workshops Conducted</p>
 </div>
@@ -254,7 +287,7 @@ A grand platform that inspires, empowers, and connects future innovators.</p>
     <div class="speakers-wrapper">
 
       <!-- LEFT ARROW -->
-      <button aria-label="left" class="speaker-arrow left" id="speakerPrev" disabled>
+      <button class="speaker-arrow left" id="speakerPrev" disabled>
         <i class="fas fa-chevron-left"></i>
       </button>
 
@@ -263,47 +296,47 @@ A grand platform that inspires, empowers, and connects future innovators.</p>
 
         <!-- 8 SPEAKER CARDS -->
         <div class="speaker-card">
-          <img src="img/speaker/shrreya shah.jpg" alt="">
+          <img src="img/home/speaker/shrreya shah.jpg" alt="">
           <h4>SHRREYA SHAH</h4>
           <p>Founder Mydvija</p>
         </div>
 <div class="speaker-card">
-          <img src="img/speaker/dev gandhi.jpg" alt="">
+          <img src="img/home/speaker/dev gandhi.jpg" alt="">
           <h4>DEV GADHVI</h4>
           <p>Passionpreneur & Tedx SPEAKER</p>
         </div>
         
 
         <div class="speaker-card">
-          <img src="img/speaker/dhawal chopra.jpg" alt="">
+          <img src="img/home/speaker/dhawal chopra.jpg" alt="">
           <h4>DHAWAL CHOPRA</h4>
           <p>Founder of Cryptal</p>
         </div>
 
         <div class="speaker-card">
-          <img src="img/speaker/manjula nair.jpg" alt="">
+          <img src="img/home/speaker/manjula nair.jpg" alt="">
           <h4>MANJULA MANJOTRA NAIR</h4>
           <p>Founder& CEO Realbuzzone
 </p>
         </div><div class="speaker-card">
-          <img src="img/speaker/tushana.jpg" alt="">
+          <img src="img/home/speaker/tushana.jpg" alt="">
           <h4>TUSHNAA PANDEY NIKAM</h4>
           <p>Startup Mentor/Consultant</p>
         </div>
 
         <div class="speaker-card">
-          <img src="img/speaker/dimitrii.jpg" alt="">
+          <img src="img/home/speaker/dimitrii.jpg" alt="">
           <h4>DMITRII KIRILLOV</h4>
           <p>Co-Founder of Door Monk & Investor</p>
         </div>
 
         <div class="speaker-card">
-          <img src="img/speaker/parthiban.jpg" alt="">
+          <img src="img/home/speaker/parthiban.jpg" alt="">
           <h4>Dr PARTHIBAN VIJAYARAGHAVAN</h4>
           <p>Former CEO of Leaderonomics</p>
         </div>
         <div class="speaker-card">
-          <img src="img/speaker/sumedh.jpg" alt="">
+          <img src="img/home/speaker/sumedh.jpg" alt="">
           <h4>SUMEDH BHALERAO</h4>
           <p>QBR Data Specialist</p>
         </div>
@@ -311,7 +344,7 @@ A grand platform that inspires, empowers, and connects future innovators.</p>
       </div>
 
       <!-- RIGHT ARROW -->
-      <button aria-label="right" class="speaker-arrow right" id="speakerNext">
+      <button class="speaker-arrow right" id="speakerNext">
         <i class="fas fa-chevron-right"></i>
       </button>
 
@@ -356,15 +389,15 @@ A grand platform that inspires, empowers, and connects future innovators.</p>
   </main>
   <!-- ================ FLOATING SOCIAL BAR ================= -->
   <div class="social-sidebar">
-    <a href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell" aria-label="linkedin"
-       class="icon linkedin" target="_blank" rel="noopener noreferrer">
+    <a href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell"
+       class="icon linkedin" target="_blank" rel="noreferrer">
       <i class="fab fa-linkedin-in"></i>
     </a>
-    <a href="https://www.instagram.com/edcbvducoep" aria-label="instagram"
-       class="icon instagram" target="_blank" rel="noopener noreferrer">
+    <a href="https://www.instagram.com/edcbvducoep"
+       class="icon instagram" target="_blank" rel="noreferrer">
       <i class="fab fa-instagram"></i>
     </a>
-    <a href="mailto:bhavyachawda19@gmail.com" aria-label="mail" class="icon mail">
+    <a href="mailto:bhavyachawda19@gmail.com" class="icon mail">
       <i class="fas fa-envelope"></i>
     </a>
   </div>
@@ -421,13 +454,13 @@ A grand platform that inspires, empowers, and connects future innovators.</p>
       <p class="follow-title">Follow Us On:</p>
 
       <div class="social-icons">
-        <a class="icon" href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell" aria-label="linkedin" target="_blank" rel="noopener noreferrer">
+        <a class="icon" href="https://www.linkedin.com/company/entrepreneurshipdevelopmentcell" target="_blank">
           <i class="fab fa-linkedin-in"></i>
         </a>
-        <a class="icon" href="https://www.instagram.com/edcbvducoep" aria-label="instagram" target="_blank" rel="noopener noreferrer">
+        <a class="icon" href="https://www.instagram.com/edcbvducoep" target="_blank">
           <i class="fab fa-instagram"></i>
         </a>
-        <a class="icon" href="mailto:bhavyachawda19@gmail.com" aria-label="mail">
+        <a class="icon" href="mailto:bhavyachawda19@gmail.com">
           <i class="fas fa-envelope"></i>
         </a>
       </div>
@@ -437,12 +470,23 @@ A grand platform that inspires, empowers, and connects future innovators.</p>
 
   </div>
 </footer>
-
+</div>
   <!-- Scripts -->
   <script src="main.js"></script>
   <script>
     // Set year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+   <script>
+    window.addEventListener("load", function () {
+      if (document.documentElement.classList.contains("show-loader")) {
+        setTimeout(() => {
+          document.documentElement.classList.remove("show-loader");
+          sessionStorage.setItem("loaderShown", "true");
+        }, 3000);
+      }
+    });
+  </script>
+
 </body>
 </html>
