@@ -1,4 +1,5 @@
-/* ============================================================
+
+/*=======================================================
    MOBILE NAV
 ============================================================ */
 const navToggle = document.getElementById("navToggle");
@@ -528,18 +529,27 @@ if (filterButtons.length && eventCards.length) {
 /* =====================
    PAST EVENT READ MORE
 ===================== */
+document.querySelectorAll(".past-readmore").forEach(button => {
+  button.addEventListener("click", function () {
 
-const pastReadMoreButtons = document.querySelectorAll(".past-readmore");
+    const card = this.closest(".past-event-card");
+    const scrollContainer = card.querySelector(".past-event-content");
 
-pastReadMoreButtons.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    const card = btn.closest(".past-event-card");
+    const isExpanded = card.classList.contains("expanded");
 
-    card.classList.toggle("expanded");
+    if (isExpanded) {
+      // If collapsing → reset scroll first
+      scrollContainer.scrollTo({
+        top: 0,
+        behavior: "instant"
+      });
+      card.classList.remove("expanded");
+    } else {
+      // If expanding → reset scroll too (important)
+      scrollContainer.scrollTop = 0;
+      card.classList.add("expanded");
+    }
 
-    btn.textContent = card.classList.contains("expanded")
-      ? "Read less "
-      : "Read more ";
   });
 });
 
