@@ -46,6 +46,7 @@
 }
 
 body {
+   height: 100%;
   margin: 0;
   font-family: "Inter", Arial, sans-serif;
   background: var(--bg-page);
@@ -55,6 +56,8 @@ body {
 }
 body {
   overflow-x: hidden;
+    height: 100%;
+  margin: 0;
 }
 
 .container {
@@ -107,6 +110,97 @@ button {
 .btn:hover,
 button:hover {
   background: var(--accent-hover);
+}
+
+/* ===============================
+   IMAGE SUPPORTED ORBIT LOADER
+================================ */
+
+/* Hide loader by default */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: var(--text-heading);
+  display: none;
+
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+html.show-loader #loader {
+  display: flex;
+}
+
+/* Hide content when loader active */
+html.show-loader #main-content {
+  display: none;
+}
+
+/* Orbit container */
+.orbit-container {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Center logo */
+.center-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+.center-icon img {
+  width: 70px;
+  height: auto;
+  display: block;
+}
+
+/* Rotating orbit */
+.orbit {
+  position: absolute;
+  inset: 0;
+ 
+}
+
+/* Base icon positioning */
+.orbit .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  animation: orbit-spin 8s linear infinite;
+}
+
+/* Icon size */
+.orbit .icon img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+  display: block;
+}
+
+.orbit .icon:nth-of-type(1) { --angle: 0deg; }
+.orbit .icon:nth-of-type(2) { --angle: 51.428571deg; }
+.orbit .icon:nth-of-type(3) { --angle: 102.857142deg; }
+.orbit .icon:nth-of-type(4) { --angle: 154.285714deg; }
+.orbit .icon:nth-of-type(5) { --angle: 205.714285deg; }
+.orbit .icon:nth-of-type(6) { --angle: 257.142857deg; }
+.orbit .icon:nth-of-type(7) { --angle: 308.571428deg; }
+
+/* Rotation animation */
+@keyframes orbit-spin {
+  from {
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateY(-75px) rotate(calc(-1 * var(--angle)));
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(calc(360deg + var(--angle))) translateY(-75px) rotate(calc(-360deg - var(--angle)));
+  }
 }
 
 
@@ -198,7 +292,7 @@ button:hover {
   background: var(--primary-hover);
 }
 
-/* Dropdown */
+/* Dropdown(not in use) */
 
 .dropdown {
   position: relative;
@@ -322,71 +416,23 @@ button:hover {
    ======================= */
 
 .hero-section {
-  background: var(--grad-hero);
-  color: var(--text-white);
-  min-height: 62vh;
-  display: flex;
-  align-items: center;
   position: relative;
+  min-height: 100vh;
   overflow: hidden;
-  padding: 40px 0 32px;
-  box-sizing: border-box;
+  background-image: url("img/home/hero\ home.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
-.hero-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
+/* Mobile image */
+@media (max-width: 400px) {
+  .hero-section {
+    background-image: url("img/home/hero\ mobile\ small.png");
+    min-height: 50svh; /* better for mobile browsers */
+  }
 }
 
-.hero-content {
-  max-width: 55%;
-  padding-left: 12px;
-  position: relative;
-  z-index: 5;
-}
-
-.hero-panel {
-  width: 30%;
-  height: 360px;
-  border-radius: 18px;
-  background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.03),
-    rgba(255, 255, 255, 0.02)
-  );
-  box-shadow: var(--shadow-inset);
-}
-
-/* Hero text */
-
-.hero-line {
-  font-size: 48px;
-  margin: 0;
-  line-height: 1;
-  letter-spacing: -1px;
-  opacity: 0;
-  transform: translateY(12px);
-}
-
-.hero-sub {
-  font-size: 18px;
-  color: var(--text-soft);
-  margin-top: 16px;
-  opacity: 0;
-  transform: translateY(12px);
-}
-
-/* Hero buttons */
-
-.hero-buttons {
-  margin-top: 20px;
-  display: flex;
-  gap: 16px;
-  opacity: 0;
-  transform: translateY(12px);
-}
 /* ===================== ABOUT SECTION ===================== */
 
 .about-section {
@@ -492,16 +538,16 @@ button:hover {
   text-align: center;
   font-size: 32px;
   font-weight: 800;
-  margin-bottom: 30px;
-  color: var(--text-main);
+  margin-bottom: 5px;
+   color: var(--text-heading);
 }
 
 /* Background wrapper behind cards */
 .flagship-bg {
   width: 100%;
   margin-top: 20px;
-  padding: 60px 0;
-  background: var(--grad-hero);
+  padding: 20px 0 80px;
+  background-color: var(--accent-hover) ;
 }
 
 /* 3-column staggered layout */
@@ -525,16 +571,20 @@ button:hover {
 
 /* flagship card */
 .flag-card {
-  background: var(--bg-surface);
+  background: var(--bg-page);
   opacity: 0;
   transform: translateY(25px);
   transition: all 0.7s ease-out;
   min-width: 200px;
+  min-height: 450px;
   box-shadow: 0 24px 55px rgba(0, 0, 0, 0.35);
   border-radius: 12px;
   padding: 20px 20px 25px;
   text-align: center;
   box-shadow: var(--shadow-soft);
+}
+.flag-card:hover{
+  transform: translateY(-0.5px);
 }
 .flag-card::before {
   content: "";
@@ -557,7 +607,12 @@ button:hover {
 
 .flag-card.in {
   opacity: 1;
-  transform: translateY(0);
+ 
+}
+.flag-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 /* Force equal width for all 3 stacks */
@@ -600,7 +655,7 @@ button:hover {
   text-align: center;
   color: var(--text-body);   /* FIXED */
   max-width: 780px;
-  margin: 0 auto 10px;
+  margin: 50px auto 10px;
   line-height: 1.6;
 }
 
@@ -661,7 +716,6 @@ button:hover {
 .fuel-bg {
   width: 100%;
   padding: 60px 0;
-  background: var(--grad-hero);
   margin-top: 20px;
 }
 
@@ -683,7 +737,7 @@ button:hover {
 
 /* icons */
 .fuel-icon {
-  font-size: 35px;
+  font-size: 40px;
   color: var(--text-white);
   margin-bottom: 10px;
 }
@@ -691,7 +745,7 @@ button:hover {
 /* counting numbers */
 .count-num {
   display: block;
-  font-size: 20px;
+  font-size: 25px;
   color: var(--text-white);
   margin-bottom: 6px;
 }
@@ -699,7 +753,7 @@ button:hover {
 /* label */
 .fuel-item p {
   color: var(--text-soft);
-  font-size: 22px;
+  font-size: 25px;
 }
 
 /* responsive */
@@ -743,7 +797,7 @@ button:hover {
 }
 .speakers-track {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   overflow-x: auto;
   overflow-y: hidden;
   scroll-behavior: smooth;
@@ -778,9 +832,27 @@ button:hover {
 .speakers-track::-webkit-scrollbar-thumb:hover {
   background: var(--accent-hover);
 }
+/* ==============================
+   HIDE SCROLLBAR (KEEP SCROLL)
+============================== */
+
+/* Chrome, Safari, Edge */
+.speakers-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+.speakers-track {
+  scrollbar-width: none;
+}
+
+/* IE / old Edge */
+.speakers-track {
+  -ms-overflow-style: none;
+}
 
 .speaker-card {
-  min-width: 198px;
+  min-width: 190px;
   background: var(--accent-hover);
   border-radius: 12px;
   padding: 16px;
@@ -879,8 +951,7 @@ button:hover {
 }
 
 .card p,
-.person p,
-.member .role {
+.person p{
   color: var(--text-on-dark);
 }
 
@@ -1317,7 +1388,7 @@ button:hover {
 .event-hero {
   width: 100%;
   min-height: 78vh;
-  background: url("img/speaker-2.jpg") center/cover no-repeat;
+  background: url("img/events/hero.jpg") center/cover no-repeat;
 
   display: flex;
   align-items: center;
@@ -1411,21 +1482,19 @@ button:hover {
 /* ============================================================
    PAST EVENTS
 ============================================================ */
-/* ============================================================
-   PAST EVENTS
-============================================================ */
 
 .past-events {
   margin-top: 80px;
   color: var(--accent-hover);
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .events-subtext {
   text-align: center;
-  margin: 5px auto 20px;
-  color: var(--text-muted);
-  font-size: 14px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+  color: var(--text-heading);
+  font-size: 16px;
 }
 
 .past-events-list {
@@ -1441,12 +1510,13 @@ button:hover {
 .past-event-card {
   display: flex;
   gap: 24px;
-  margin: auto 25px;
+  margin: 0 25px;
   background: var(--accent);
   border-radius: 18px;
   padding: 22px;
   color: var(--text-on-dark);
   align-items: flex-start;
+  transition: height 0.3s ease;
 }
 
 /* image block */
@@ -1471,58 +1541,96 @@ button:hover {
 }
 
 /* text */
-.past-event-content h3 {
+.past-event-content h4 {
   margin-bottom: 8px;
   color: var(--text-on-dark);
-  
 }
 
 .past-event-content p {
   color: var(--text-on-dark);
   line-height: 1.6;
 }
-.past-event-card h3 {
-  color: var(--text-heading);
-}
-.past-event-card p {
-  color: var(--text-on-dark);
+
+.past-event-card {
+  scroll-margin-top: 120px;
 }
 
 /* ============================================================
-   READ MORE (EXPAND)
+   READ MORE – SINGLE SCROLL VERSION
 ============================================================ */
 
+/* hide extra text initially */
 .past-event-more {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
+  display: none;
 }
 
-/* expanded state (JS toggles .expanded on card) */
+/* expanded card */
+.past-event-card.expanded {
+  height: 400px;        /* fixed height when opened */
+  overflow: hidden;     /* prevent spill */
+}
+
+/* content layout when expanded */
+.past-event-card.expanded .past-event-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+}
+
+/* show extra text */
 .past-event-card.expanded .past-event-more {
-  max-height: 200px;
-  margin-top: 10px;
+  display: block;
 }
 
-/* button */
+/* create ONE scroll area for entire text */
+.past-event-card.expanded .past-event-content {
+  overflow-y: auto;
+  padding-right: 8px;   /* space for scrollbar */
+}
+
+/* keep button fixed at bottom */
+.past-event-card.expanded .past-readmore {
+  margin-top: auto;
+}
+
+/* keep button fixed at bottom */
+.past-event-card.expanded .past-readmore {
+  margin-top: auto;
+}
+
+/* scrollbar styling */
+.past-event-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.past-event-content::-webkit-scrollbar-thumb {
+  background: var(--accent-hover);
+  border-radius: 10px;
+}
+
+/* ============================================================
+   BUTTON
+============================================================ */
+
 .past-readmore {
-  margin-top: 12px;
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.28s ease;
+  border: none;
+  margin-top: auto;
   align-self: flex-start;
-
-  background: transparent;
-  border: 1px solid var(--border-soft);
-  border-radius: 20px;
-
-  padding: 6px 14px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-
-  transition: background 0.25s ease;
+  background-color: var(--text-muted);
+  color: var(--text-on-dark);
 }
 
 .past-readmore:hover {
-  background: rgba(0,0,0,0.06);
+  background-color: var(--text-on-dark);
+  transform: translateY(-1px);
+  color: var(--text-heading);
 }
 
 /* ============================================================
@@ -1530,6 +1638,7 @@ button:hover {
 ============================================================ */
 
 @media (max-width: 800px) {
+
   .past-event-card {
     flex-direction: column;
     text-align: center;
@@ -1543,14 +1652,11 @@ button:hover {
   .past-readmore {
     align-self: center;
   }
-
-  .event-scroll-link {
-    position: static;
-    transform: none;
-    display: block;
-    margin: 10px 0;
-  }
 }
+ .past-event-card.expanded {
+    height: 75vh !important;   /* force bigger height */
+    max-height: none !important;
+ }
 /* ============================================================
    UPCOMING EVENTS
 ============================================================ */
@@ -1587,7 +1693,7 @@ button:hover {
 }
 
 .event-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(0px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
 }
 
@@ -1604,17 +1710,28 @@ button:hover {
   background-color: var(--text-muted);
   color: var(--text-on-dark);
 }
+.btn-light:hover{
+  background-color: var(--text-on-dark);
+  transform: translateY(-1px);
+  color: var(--text-heading);
+}
+@media (max-width: 1000px) {
 
-@media (max-width: 900px) {
   .event-grid {
-    grid-template-columns: 1fr;
+    display: flex;          /* remove grid control */
+    flex-direction: column;
+    align-items: center;    /* center cards */
+    gap: 30px;
   }
 
   .event-card {
-    width: 100%;
-    height: auto;
+    width: 80vw;            /* viewport width based */
+    max-width: none;
+    margin: 0;
   }
+
 }
+
 .event-card h3,
 .past-event-card h3 {
   color: var(--text-on-dark);
@@ -1658,7 +1775,7 @@ button:hover {
 .team-hero {
   width: 100%;
   min-height: 78vh;
-  background: url("img/speaker-2.jpg") center/cover no-repeat;
+  background: url("img/team/hero.jpg") center/cover no-repeat;
 
   display: flex;
   align-items: center;
@@ -1868,7 +1985,7 @@ button:hover {
   overflow: hidden;
   display: grid;
   place-items: center;
-  background: black;
+  
 }
   
 
@@ -1946,10 +2063,12 @@ button:hover {
 }
 
 .event-track::-webkit-scrollbar {
+  margin-top: 10px;
   height: 8px;
 }
 
 .event-track::-webkit-scrollbar-track {
+  margin-top: 10px;
   background: transparent;
   border-radius: 4px;
 }
@@ -1961,6 +2080,24 @@ button:hover {
 
 .event-track::-webkit-scrollbar-thumb:hover {
   background: var(--accent-hover);
+}
+/* ==============================
+   HIDE SCROLLBAR (KEEP SCROLL)
+============================== */
+
+/* Chrome, Safari, Edge */
+.event-track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Firefox */
+.event-track {
+  scrollbar-width: none;
+}
+
+/* IE / old Edge */
+.event-track {
+  -ms-overflow-style: none;
 }
 
 /* 4 images visible */
