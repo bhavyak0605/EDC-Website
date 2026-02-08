@@ -543,10 +543,15 @@ document.querySelectorAll(".past-readmore").forEach(button => {
         top: 0,
         behavior: "instant"
       });
+      button.textContent = "Read More";
       card.classList.remove("expanded");
     } else {
       // If expanding → reset scroll too (important)
       scrollContainer.scrollTop = 0;
+      scrollContainer.addEventListener("scroll", function onScroll() {
+        button.textContent = "Read Less";
+        scrollContainer.removeEventListener("scroll", onScroll);
+      });
       card.classList.add("expanded");
     }
 
