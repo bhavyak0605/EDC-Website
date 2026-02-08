@@ -5,8 +5,6 @@
 
   --bg-page:#F3EEE7;        /* main beige page background */
   --bg-section: #F3EEE7;     /* subtle section separation */
-  --bg-card: #EDE6DB;        /* all cards / boxes */
-
   --bg-dark: #1F2F3A;        /* header + footer + dark panels */
 
  
@@ -91,20 +89,20 @@ a:hover {
 
 .center {
   text-align: center;
-  color: var(--text-white);
+
 }
 
 .site-header,
 .site-footer {
   background: var( --accent-hover);
-  color: var( --bg-page);
+  color: var( --text-on-dark);
 }
 
 .btn,
 .btn-light,
 button {
   background: var(--accent);
-  color: var(--text-on-green);
+  
 }
 
 .btn:hover,
@@ -230,7 +228,6 @@ html.show-loader #main-content {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: var(--text-white);   /* FIXED: header sits on dark bg */
   text-decoration: none;
 }
 
@@ -265,7 +262,7 @@ html.show-loader #main-content {
 }
 
 .nav a {
-  color: var(--text-on-dark);   /* FIXED */
+
   font-weight: 600;
   font-size: 18px;
   padding: 6px 10px;
@@ -274,7 +271,7 @@ html.show-loader #main-content {
 }
 
 .nav a:hover {
-  background: var(--primary);
+ 
   color: var(--text-muted);
 }
 
@@ -326,7 +323,7 @@ html.show-loader #main-content {
 .dropdown:hover .dropdown-content {
   display: block;
 }
-
+/* Dropdown(not in use) */
 /* Mobile nav toggle */
 
 .nav-toggle {
@@ -1493,7 +1490,7 @@ html.show-loader #main-content {
   text-align: center;
   margin-bottom: 20px;
   margin-top: 5px;
-  color: var(--text-heading);
+  color: var(--text-body   );
   font-size: 16px;
 }
 
@@ -1511,7 +1508,7 @@ html.show-loader #main-content {
   display: flex;
   gap: 24px;
   margin: 0 25px;
-  background: var(--accent);
+  background: #415160;
   border-radius: 18px;
   padding: 22px;
   color: var(--text-on-dark);
@@ -1676,7 +1673,7 @@ html.show-loader #main-content {
   width: 100%;
   min-height: 260px;
 
-  background: var(--accent);
+  background: #415160;
   border: 1px solid var(--border-soft);
   border-radius: 16px;
 
